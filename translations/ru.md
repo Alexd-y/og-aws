@@ -1372,53 +1372,25 @@ RDS Aurora PostgreSQL
 ElastiCache
 -----------
 
-### ElastiCache Basics
+### Основы ElastiCache
 
-- 📒 [Homepage](https://aws.amazon.com/elasticache/) ∙ [User
-  guide for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/index.html) ∙ [User
-  guide for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/index.html) ∙
-  [FAQ](https://aws.amazon.com/elasticache/faqs/) ∙
-  [Pricing](https://aws.amazon.com/elasticache/pricing/)
-- **ElastiCache** is a managed in-memory cache service, that can be used to
-  store temporary data in a fast in-memory cache, typically in order to avoid
-  repeating the same computation multiple times when it could be reused.
-- It supports both the [Memcached](https://memcached.org) and
-  [Redis](https://redis.io) open source in-memory cache software and exposes
-  them both using their native access APIs.
-- The main benefit is that AWS takes care of running, patching and optimizing
-  the cache nodes for you, so you just need to launch a cluster and configure
-  its endpoint in your application, while AWS will take of most of the operational
-  work of running the cache nodes.
+- 📒 [Домашняя страница](https://aws.amazon.com/elasticache/) ∙ [Руководство пользователя для Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/index.html) ∙ [Руководство пользователя для Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/index.html) ∙
+  [ЧаВо](https://aws.amazon.com/elasticache/faqs/) ∙
+  [Расценки](https://aws.amazon.com/elasticache/pricing/)
+- **ElastiCache** это управляемый сервис кэширования в памяти, который может быть использован для хранения временных данных в быстром кэше в памяти, обычно в целях того, чтобы избежать одинаковых вычислительных операций в то время, как данные могут быть взяты снова. 
+- Он поддерживает [Memcached](https://memcached.org) и
+  [Redis](https://redis.io) - открытое программное обеспечение для кэширования в памяти, они оба используют свои собственные API.
+- Основное преимущество заключается в том, что AWS заботится о запуске, исправлении и оптимизации нод кэширования для вас, так что вам просто нужно запустить кластер и настроить его эндпоинт в вашем приложении, в то время как AWS возьмет на себя большую часть работы по запуску нод кэширования.
+   
+### Советы по ElastiCache
 
-### ElastiCache Tips
+- Выберите
+  [движок](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html), конфигурацию кластера и [тип инстанса] http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNodes.SelectSize.html) исходя из потребностей вашего приложения. Документация подробно объясняет плюсы, минусы и ограничения каждого механизма, чтобы помочь вам выбрать наиболее подходящий для вашего приложения. В двух словах, Redis предпочтительнее для хранения более сложных структур данных, в то время как Memcached - это просто хранилище ключ/значение. Простота Memcached позволяет ему быть немного быстрее и позволяет масштабировать его при необходимости, но Redis имеет больше функций, которые вы можете использовать в своем приложении.
+- Для Memcached AWS предоставляет расширенные SDK для определенных языков программирования, которые реализуют [автообнаружение](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoDiscovery.html), функцию, не доступную в обычных библиотеках клиента memcached.
 
-- Choose the
-  [engine](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html),
-  clustering configuration and [instance
-  type](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNodes.SelectSize.html)
-  carefully based on your application needs. The documentation explains in
-  detail the pros, cons and limitations of each engine in order to help you
-  choose the best fit for your application. In a nutshell, Redis is
-  preferable for storing more complex data structures, while Memcached is just a
-  plain key/value store. The simplicity of Memcached allows it to be slightly
-  faster and allows it to scale out if needed, but Redis has more features which
-  you may use in your application.
-- For Memcached AWS provides enhanced SDKs for certain programming languages
-  which implement
-  [auto-discovery](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoDiscovery.html),
-  a feature not available in the normal memcached client libraries.
+### Ошибки и ограничения, связанные с ElastiCache
 
-### ElastiCache Gotchas and Limitations
-
-- Since in some cases changing the cache clusters may have some restrictions,
-  like for
-  [scaling](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Scaling.html)
-  purposes, it may become a problem if they were launched using CloudFormation
-  in a stack that also contains other resources and you really need to change
-  the cache. In order to avoid getting your CloudFormation stacks in a
-  non-updateable state, it is recommended to launch ElastiCache clusters (just
-  like any other resource with similar constraints) in dedicated stacks which
-  can be replaced entirely with new stacks having the desired configuration.
+- Поскольку в некоторых случаях изменение кластеров кэша может иметь некоторые ограничения, например, для целей [масштабирования](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Scaling.html), это может стать проблемой, если они были запущены с использованием CloudFormation в стеке, который также содержит другие ресурсы, и вам действительно необходимо изменить кэш.Во избежание перевода стеков CloudFormation в состояние без возможности обновления, рекомендуется запускать кластеры ElastiCache (как и любой другой ресурс с аналогичными ограничениями) в выделенных стеках, которые можно полностью заменить новыми стеками, имеющими желаемую конфигурацию.
 
 
 DynamoDB
