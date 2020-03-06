@@ -44,7 +44,7 @@
 | [EKS](#eks) | [📗](#основы-eks) | [📘](#советы-по-eks) | [📙](#ошибки-и-ограничения-связанные-с-eks)  |
 | [EFS](#efs) | [📗](#основы-efs) | [📘](#советы-по-efs) | [📙](#ошибки-и-ограничения-связанные-с-efs) |
 | [Elastic Beanstalk](#elastic-beanstalk) | [📗](#основы-elastic-beanstalk) | [📘](#советы-по-elastic-beanstalk) | [📙](#ошибки-и-ограничения-связанные-с-elastic-beanstalk) |
-| [Elastic IPs](#elastic-ips) | [📗](#elastic-ip-basics) | [📘](#elastic-ip-tips) | [📙](#elastic-ip-gotchas-and-limitations) |
+| [Elastic IPs](#elastic-ips) | [📗](#основы-elastic-ip) | [📘](#советы-по-elastic-ip) | [📙](#ошибки-и-ограничения-связанные-с-elastic-ip) |
 | [ElastiCache](#elasticache) | [📗](#elasticache-basics) | [📘](#elasticache-tips) | [📙](#elasticache-gotchas-and-limitations) |
 | [EMR](#emr) | [📗](#emr-basics) | [📘](#emr-tips) | [📙](#emr-gotchas-and-limitations) |
 | [Fargate](#fargate) | [📗](#fargate-basics) | [📘](#fargate-tips) | [📙](#fargate-gotchas-and-limitations) |
