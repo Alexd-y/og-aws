@@ -1165,25 +1165,25 @@ ALB
 Elastic Beanstalk
 ----------------
 
-### Elastic Beanstalk Basics
-- 📒 [Homepage](https://aws.amazon.com/elasticbeanstalk/) ∙ [Developer guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html) ∙ [FAQ](https://aws.amazon.com/elasticbeanstalk/faqs/) ∙ [Pricing](https://aws.amazon.com/elasticbeanstalk/pricing/)
-- **EB** (Elastic Beanstalk) is a PaaS (Platform as a Service) that helps developers create, deploy and scale web applications
-- EB handles deployment, configuration, provisioning, load balancing, auto-scaling, monitoring, and logging
-- EB creates AWS resources on your behalf but you retain full access and control of the underlying resources
-- 💸 There is no cost to use EB but you will still be charged the full cost of the underlying AWS resources created by EB
+### Основы Elastic Beanstalk
+- 📒 [Домашняя страница](https://aws.amazon.com/elasticbeanstalk/) ∙ [Руководство разработчика](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html) ∙ [ЧаВо](https://aws.amazon.com/elasticbeanstalk/faqs/) ∙ [Расценки](https://aws.amazon.com/elasticbeanstalk/pricing/)
+- **EB** (Elastic Beanstalk) - это PaaS (Платформа как сервис) которая помогает разработчикам создавать, развертывать и масштабировать веб-приложения
+- EB управляет развертыванием, настройкой, выделением ресурсов, балансировкой нагрузки, автоматическим масштабированием, мониторингом и ведением логов.
+- EB создает ресурсы AWS от вашего имени, но вы сохраняете полный доступ и контроль над основными ресурсами
+- 💸 Использование EB бесплатно, но вы все равно будете платить полную стоимость базовых ресурсов AWS, созданных EB.
 
-### Elastic Beanstalk Tips
-- To speed up deployment before launch or in a dev stage, turn off health checks and set the `Deployment policy` to `All at once`
-- If you have a configuration you want to re-use for multiple EB apps, you can save the current configuration using `eb config save --cfg myEBConfig`
-- By default, EB doesn't have any alarms. You'll need to add them yourself on metrics that you're monitoring.
-- By default, EB doesn't enable [managed platform updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html?icmpid=docs_elasticbeanstalk_console). Enable them in configuration to have EB automatically apply updates during a pre-specified maintenance window
+### Советы по Elastic Beanstalk
+- Чтобы ускорить развертывание перед запуском или на этапе разработки, отключите проверки работоспособности и установите `Deployment policy` значение `All at once`
+- Если у вас есть конфигурация, которую вы хотите использовать повторно для нескольких приложений EB, вы можете сохранить текущую конфигурацию, используя `eb config save --cfg myEBConfig`
+- По умолчанию, в EB нет аварийных оповещений. Вам необходимо добавить их самостоятельно, в соответствии с метриками, которые вы мониторите. 
+- По умолчанию, EB не включает [управляемые обновления платформы](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html?icmpid=docs_elasticbeanstalk_console). Включите их в настройках, чтобы EB автоматически применял обновления в заранее установленный период обслуживания
 
-### Elastic Beanstalk Gotchas and Limitations
-- 🔸 Don't edit [apache|nginx] conf files manually on ec2 instances as they will be re-written on each deployment (use [ebextensions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html) instead)
-- 🔸 After creating an EB environment, it's no longer possible to change the `Name` tag
-- 🔸 EB will sometimes quarantine instances that cause multiple deployment issues. Despite being quarantined, EB will still deploy to them on subsequent deployments. To prevent this behavior, said instances will need to be terminated (or the underlying issue fixed)
-- File uploads are capped at 10MB for most default eb configurations - update [nginx config](https://stackoverflow.com/questions/18908426/increasing-client-max-body-size-in-nginx-conf-on-aws-elastic-beanstalk) to change
-- If you edit `.elasticbeanstalk/saved_configs/`, be aware that this is not kept in sync with the EB environment config. You'll need to manually fetch and save for changes to take effect
+### Ошибки и ограничения, связанные с Elastic Beanstalk
+- 🔸 Не редактируйте конфигурационные файлы [apache|nginx] вручную на инстансах ec2, так как они будут перезаписаны при каждом развертывании (вместо этого используйте [ebextensions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html))
+- 🔸 После создания среды EB, больше не представляется возможным изменения тэга `Name`
+- 🔸 EB иногда помещает в карантин инстансы, которые вызывают многократные проблемы развертывания. Несмотря на карантин, EB все равно будет развертываться на них при последующих развертываниях. Чтобы предотвратить такое поведение, указанные инстансы необходимо удалить (или устранить проблему)
+- Загрузка файлов ограничена 10MB в большинстве конфигураций eb по умолчанию, обновите [конфигурационный файл nginx](https://stackoverflow.com/questions/18908426/increasing-client-max-body-size-in-nginx-conf-on-aws-elastic-beanstalk) чтобы исправить это
+- Если вы редактируете `.elasticbeanstalk/saved_configs/`, знайте, что он не синхронизируется с конфигураций среды EB. Вам необходимо вручную подтянуть настройки и сохранить их для применения изменений.
 
 Elastic IPs
 -----------
