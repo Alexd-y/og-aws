@@ -41,8 +41,8 @@
 | [EBS](#ebs) | [📗](#основы-ebs) | [📘](#советы-по-ebs) | [📙](#ошибки-и-ограничения-связанные-с-ebs) |
 | [EC2](#ec2) | [📗](#основы-ec2) | [📘](#советы-по-ec2) | [📙](#ошибки-и-ограничения-ec2) |
 | [ECS](#ecs) | [📗](#основы-ecs) | [📘](#советы-по-ecs) |  |
-| [EKS](#eks) | [📗](#eks-basics) | [📘](#eks-tips) | [📙](#eks-gotchas-and-limitations)  |
-| [EFS](#efs) | [📗](#efs-basics) | [📘](#efs-tips) | [📙](#efs-gotchas-and-limitations) |
+| [EKS](#eks) | [📗](#основы-eks) | [📘](#советы-по-eks) | [📙](#ошибки-и-ограничения-связанные-с-eks)  |
+| [EFS](#efs) | [📗](#основы-efs) | [📘](#советы-по-efs) | [📙](#ошибки-и-ограничения-связанные-с-efs) |
 | [Elastic Beanstalk](#elastic-beanstalk) | [📗](#elastic-beanstalk-basics) | [📘](#elastic-beanstalk-tips) | [📙](#elastic-beanstalk-gotchas-and-limitations) |
 | [Elastic IPs](#elastic-ips) | [📗](#elastic-ip-basics) | [📘](#elastic-ip-tips) | [📙](#elastic-ip-gotchas-and-limitations) |
 | [ElastiCache](#elasticache) | [📗](#elasticache-basics) | [📘](#elasticache-tips) | [📙](#elasticache-gotchas-and-limitations) |
