@@ -46,7 +46,7 @@
 | [Elastic Beanstalk](#elastic-beanstalk) | [📗](#основы-elastic-beanstalk) | [📘](#советы-по-elastic-beanstalk) | [📙](#ошибки-и-ограничения-связанные-с-elastic-beanstalk) |
 | [Elastic IPs](#elastic-ips) | [📗](#основы-elastic-ip) | [📘](#советы-по-elastic-ip) | [📙](#ошибки-и-ограничения-связанные-с-elastic-ip) |
 | [ElastiCache](#elasticache) | [📗](#основы-elasticache) | [📘](#советы-по-elasticache) | [📙](#ошибки-и-ограничения-связанные-с-elasticache) |
-| [EMR](#emr) | [📗](#emr-basics) | [📘](#emr-tips) | [📙](#emr-gotchas-and-limitations) |
+| [EMR](#emr) | [📗](#основы-emr) | [📘](#советы-по-emr) | [📙](#ошибки-и-ограничения-связанные-с-emr) |
 | [Fargate](#fargate) | [📗](#fargate-basics) | [📘](#fargate-tips) | [📙](#fargate-gotchas-and-limitations) |
 | [Glacier](#glacier) | [📗](#glacier-basics) | [📘](#glacier-tips) | [📙](#glacier-gotchas-and-limitations) |
 | [IoT](#iot) | [📗](#iot-basics) | [📘](#iot-tips) | [📙](#iot-gotchas-and-limitations) |
