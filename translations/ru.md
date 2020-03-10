@@ -48,7 +48,7 @@
 | [ElastiCache](#elasticache) | [📗](#основы-elasticache) | [📘](#советы-по-elasticache) | [📙](#ошибки-и-ограничения-связанные-с-elasticache) |
 | [EMR](#emr) | [📗](#основы-emr) | [📘](#советы-по-emr) | [📙](#ошибки-и-ограничения-связанные-с-emr) |
 | [Fargate](#fargate) | [📗](#основы-fargate) | [📘](#советы-по-fargate) | [📙](#ошибки-и-ограничения-связанные-с-fargate) |
-| [Glacier](#glacier) | [📗](#glacier-basics) | [📘](#glacier-tips) | [📙](#glacier-gotchas-and-limitations) |
+| [Glacier](#glacier) | [📗](#основы-glacier) | [📘](#советы-по-glacier) | [📙](#ошибки-и-ограничения-связанные-с-glacier) |
 | [IoT](#iot) | [📗](#iot-basics) | [📘](#iot-tips) | [📙](#iot-gotchas-and-limitations) |
 | [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#kinesis-firehose-gotchas-and-limitations) |
 | [Kinesis Streams](#kinesis-streams) | [📗](#kinesis-streams-basics) | [📘](#kinesis-streams-tips) | [📙](#kinesis-streams-gotchas-and-limitations) |
