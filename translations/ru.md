@@ -47,7 +47,7 @@
 | [Elastic IPs](#elastic-ips) | [📗](#основы-elastic-ip) | [📘](#советы-по-elastic-ip) | [📙](#ошибки-и-ограничения-связанные-с-elastic-ip) |
 | [ElastiCache](#elasticache) | [📗](#основы-elasticache) | [📘](#советы-по-elasticache) | [📙](#ошибки-и-ограничения-связанные-с-elasticache) |
 | [EMR](#emr) | [📗](#основы-emr) | [📘](#советы-по-emr) | [📙](#ошибки-и-ограничения-связанные-с-emr) |
-| [Fargate](#fargate) | [📗](#fargate-basics) | [📘](#fargate-tips) | [📙](#fargate-gotchas-and-limitations) |
+| [Fargate](#fargate) | [📗](#основы-fargate) | [📘](#советы-по-fargate) | [📙](#ошибки-и-ограничения-связанные-с-fargate) |
 | [Glacier](#glacier) | [📗](#glacier-basics) | [📘](#glacier-tips) | [📙](#glacier-gotchas-and-limitations) |
 | [IoT](#iot) | [📗](#iot-basics) | [📘](#iot-tips) | [📙](#iot-gotchas-and-limitations) |
 | [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#kinesis-firehose-gotchas-and-limitations) |
