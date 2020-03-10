@@ -52,7 +52,7 @@
 | [IoT](#iot) | [📗](##основы-iot) | [📘](#советы-по-iot) | [📙](#ошибки-и-ограничения-связанные-с-iot) |
 | [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#ошибки-и-ограничения-связанные-с--kinesis-firehose) |
 | [Kinesis Streams](#kinesis-streams) | [📗](#основы-kinesis-streams) | [📘](#советы-по-kinesis-streams) | [📙](#ошибки-и-ограничения-связанные-с-kinesis-streams) |
-| [KMS](#kms) | [📗](#kms-basics) | [📘](#kms-tips) | [📙](#kms-gotchas-and-limitations) |
+| [KMS](#kms) | [📗](#основы-kms) | [📘](#советы-по-kms) | [📙](#ошибки-и-ограничения-связанные-с-kms) |
 | [Lambda](#lambda) | [📗](#lambda-basics) | [📘](#lambda-tips) | [📙](#lambda-gotchas-and-limitations) |
 | [Load Balancers](#load-balancers) | [📗](#load-balancer-basics) | [📘](#load-balancer-tips) | [📙](#load-balancer-gotchas-and-limitations) |
 | [Mobile Hub](#mobile-hub) | [📗](#mobile-hub-basics) | [📘](#mobile-hub-tips) | [📙](#mobile-hub-gotchas-and-limitations) |
