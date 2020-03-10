@@ -50,8 +50,8 @@
 | [Fargate](#fargate) | [📗](#основы-fargate) | [📘](#советы-по-fargate) | [📙](#ошибки-и-ограничения-связанные-с-fargate) |
 | [Glacier](#glacier) | [📗](#основы-glacier) | [📘](#советы-по-glacier) | [📙](#ошибки-и-ограничения-связанные-с-glacier) |
 | [IoT](#iot) | [📗](##основы-iot) | [📘](#советы-по-iot) | [📙](#ошибки-и-ограничения-связанные-с-iot) |
-| [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#kinesis-firehose-gotchas-and-limitations) |
-| [Kinesis Streams](#kinesis-streams) | [📗](#kinesis-streams-basics) | [📘](#kinesis-streams-tips) | [📙](#kinesis-streams-gotchas-and-limitations) |
+| [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#ошибки-и-ограничения-связанные-с--kinesis-firehose) |
+| [Kinesis Streams](#kinesis-streams) | [📗](#основы-kinesis-streams) | [📘](#советы-по-kinesis-streams) | [📙](#ошибки-и-ограничения-связанные-с-kinesis-streams) |
 | [KMS](#kms) | [📗](#kms-basics) | [📘](#kms-tips) | [📙](#kms-gotchas-and-limitations) |
 | [Lambda](#lambda) | [📗](#lambda-basics) | [📘](#lambda-tips) | [📙](#lambda-gotchas-and-limitations) |
 | [Load Balancers](#load-balancers) | [📗](#load-balancer-basics) | [📘](#load-balancer-tips) | [📙](#load-balancer-gotchas-and-limitations) |
