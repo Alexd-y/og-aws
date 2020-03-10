@@ -1494,27 +1494,27 @@ EKS
 Fargate
 -------
 
-### Fargate Basics
--	📒 [Homepage](https://aws.amazon.com/fargate/) ∙ [FAQ](https://aws.amazon.com/fargate/faqs/) ∙ [Pricing](https://aws.amazon.com/fargate/pricing/)
--   **Fargate** allows you to manage and deploy containers without having to worry about running the underlying compute infrastructure
--   Fargate serves as a new backend (in addition to the legacy EC2 backend) on which ECS and EKS tasks can be run
--   Fargate and EC2 backends are called "Launch Types"
--   Fargate allows you to treat containers as fundamental building blocks of your infrastructure
+### Основы Fargate
+-	📒 [Домашняя страница](https://aws.amazon.com/fargate/) ∙ [ЧаВо](https://aws.amazon.com/fargate/faqs/) ∙ [Расценки](https://aws.amazon.com/fargate/pricing/)
+-   **Fargate** позволяет вам управлять и разворачивать контйнера не задумываясь о запуске подлежащей вычислительной платформе
+-   Fargate выступает в роли нового бэкенда (в дополнению к старом бэкенду на EC2) на котором можно запускать задачи ECS и EKS
+-   Fargate и EC2 в данном контексте называются "Типы запуска(Launch Types)"
+-   Fargate позволяет вам рассматривать контейнера, как фундаментальные строительные блоки вашей инфраструктуры.
 
-### Fargate Tips
--   Fargate follows a similar mindset to Lambda, which lets you focus on applications, instead of dealing with underlying infrastructure
--   Fargate is supported by CloudFormation, aws-cli and ecs-cli
--   Fargate tasks can be launched alongside tasks that use EC2 Launch Type
--   💸Before creating a large Fargate deployment, make sure to estimate costs and compare them against alternative solution that uses traditional EC2 deployment - Fargate prices can be several times those of equivalently-sized EC2 instances. To evaluate both solutions based on potential costs, refer to pricing for [EC2](https://aws.amazon.com/ec2/pricing/) and [Fargate](https://aws.amazon.com/fargate/pricing/).
+### Советы по Fargate
+-   Fargate следует подобному образу мышления, как у Lambda, который позволяет вам сосредоточиться на приложениях, вместо работы с низлежащей инфраструктурой
+-   Fargate поддерживается CloudFormation, aws-cli и ecs-cli
+-   Задачи Fargate можно запускать совместно с любыми задачами, использующими тип запуска EC2
+-   💸Перед созданием большого развертывания на Fargate, обязательно оцените затраты и сравните их с альтернативным решением, использующим традиционное развертывание на EC2. Цены на Fargate могут в несколько раз превышать цены на инстансы EC2 эквивалентного размера. Для оценки возможных затрат на оба этих решения, ознакомьтесь с разценками на [EC2](https://aws.amazon.com/ec2/pricing/) и [Fargate](https://aws.amazon.com/fargate/pricing/).
 
-### Fargate Alternatives and Lock-in
--   🚪[Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/): Available on Microsoft Azure in preview version, allows to run applications in containers without having to manage virtual machines
+### Альтернативы Fargate и привязки
+-   🚪[Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/): Доступно в Microsoft Azure в предварительной версии, позволяет запускать приложения в контейнерах без управления виртуальными машинами
 
-### Fargate Gotchas and Limitations
--   As of April 2018, Fargate is available in [multiple regions](https://aws.amazon.com/about-aws/whats-new/2018/04/aws-fargate-now-available-in-ohio--oregon--and-ireland-regions/): us-east-1, us-east-2, us-west-2, and eu-west-1
--   As of January 2019, Fargate can only be used with ECS. Support for EKS [was originally planned for 2018](https://aws.amazon.com/blogs/aws/aws-fargate/), but has yet to launch.
--   The smallest resource values that can be configured for an ECS Task that uses Fargate is 0.25 vCPU and 0.5 GB of memory
--   [Task storage is ephemeral. After a Fargate task stops, the storage is deleted.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-storage.html)
+### Ошибки и ограничения, связанные с Fargate
+-   По состоянию на апрель 2018 года, Fargate доступен в [нескольких регионах](https://aws.amazon.com/about-aws/whats-new/2018/04/aws-fargate-now-available-in-ohio--oregon--and-ireland-regions/): us-east-1, us-east-2, us-west-2, and eu-west-1
+-   По состоянию на явнварь 2019 год, Fargate может быть использован с ECS. Поддержка EKS [была изначально запланирована на 2018 год](https://aws.amazon.com/blogs/aws/aws-fargate/), но пока не запущена.
+-   Минимальные ресурсы, которые можно использовать для выполнения задачи ECS в Fargate - 0.25 vCPU и 0.5 GB памяти
+-   [Хранилище задач - эфемерно. Как только задача Fargate останавливается - хранилище удаляется.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-storage.html)
 
 
 Lambda
