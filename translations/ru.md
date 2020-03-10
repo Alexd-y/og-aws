@@ -1787,31 +1787,31 @@ manually managing [NAT instances](https://docs.aws.amazon.com/AmazonVPC/latest/U
 KMS
 ---
 
-### KMS Basics
+### Основы KMS
 
--	📒 [Homepage](https://aws.amazon.com/kms/) ∙ [Developer guide](http://docs.aws.amazon.com/kms/latest/developerguide/) ∙ [FAQ](https://aws.amazon.com/kms/faqs/) ∙ [Pricing](https://aws.amazon.com/kms/pricing/)
--	**KMS** (Key Management Service) is a secure service for creating, storing and auditing usage of cryptographic keys.
-- **Service integration:** KMS [integrates with other AWS services](http://docs.aws.amazon.com/kms/latest/developerguide/service-integration.html): EBS, Elastic Transcoder, EMR, Redshift, RDS, SES, S3, WorkMail and Workspaces.
-- **Encryption APIs:** The [Encrypt](http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) and [Decrypt API](http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) allow you to encrypt and decrypt data on the KMS service side, never exposing the master key contents.
-- **Data keys:** The [GenerateDataKey](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys) API generates a new key off of a master key. The data key contents are exposed to you so you can use it to encrypt and decrypt any size of data in your application layer. KMS does not store, manage or track data keys, you are responsible for this in your application.
-- 🔹**Auditing:** Turn on CloudTrail to audit all KMS API events.
-- **Access:** Use [key policies](http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) and [IAM policies](http://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html) to grant different levels of KMS access. For example, you create an IAM policy that only [allows a user to encrypt and decrypt with a specific key](http://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-encrypt-decrypt-specific-cmks).
+-	📒 [Домашняя страница](https://aws.amazon.com/kms/) ∙ [Руководство разработчика](http://docs.aws.amazon.com/kms/latest/developerguide/) ∙ [ЧаВо](https://aws.amazon.com/kms/faqs/) ∙ [Расценки](https://aws.amazon.com/kms/pricing/)
+-	**KMS** (Сервис управления ключами(Key Management Service)) это безопасный сервис для создания, хранения и аудита использования криптографических ключей.
+- **Интеграция сервисов:** KMS [интегрируется с другими сервисами AWS ](http://docs.aws.amazon.com/kms/latest/developerguide/service-integration.html): EBS, Elastic Transcoder, EMR, Redshift, RDS, SES, S3, WorkMail и Workspaces.
+- **API шифрования:** [API шифровать](http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) и [API дешифровать API](http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) позволяют вам зашифровывать и расшифровывать данные на стороне сервиса KMS, никогда не раскрывая содержимого мастер ключа.
+- **Ключи данных:** API [GenerateDataKey](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys) генерирует новый ключ с мастер ключа. Содержимое ключа данных доступно вам, поэтому вы можете использовать его для шифрования и дешифрования данных любого уровня на уровне приложения. KMS не хранит, не управляет и не отслеживает ключи данных, вы несете ответственность за это в своем приложении.
+- 🔹**Аудит использования:** Настройте CloudTrail для аудита вызовов API KMS.
+- **Доступ:** Используйте [политики ключей(key policies)](http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) и [политики IAM ](http://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html) для предоставления различного уровня доступов к KMS. Например, вы можете создать политику IAM которая только [позволяет пользователю шифровать и расшифровывать данные с конкретным ключем](http://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-encrypt-decrypt-specific-cmks).
 
-### KMS Tips
+### Советы по KMS
 
--	🔹It’s very common for companies to manage keys completely via home-grown mechanisms, but it’s far preferable to use a service such as KMS from the beginning, as it encourages more secure design and improves policies and processes around managing keys.
--	A good motivation and overview is in [this AWS presentation](http://www.slideshare.net/AmazonWebServices/encryption-and-key-management-in-aws).
--	The cryptographic details are in [this AWS whitepaper](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf).
--	[This blog from Convox](https://convox.com/blog/encryption-at-rest) demonstrates why and how to use KMS for encryption at rest.
+-	🔹В компаниях очень распространено полное управление ключами с помощью собственных механизмов, но с самого начала гораздо предпочтительнее использовать такие службы, как KMS, так как это способствует более безопасному проектированию и улучшает политики и процессы управления ключами.
+-	Хорошая мотивация и обзор в [этой презентации от AWS](http://www.slideshare.net/AmazonWebServices/encryption-and-key-management-in-aws).
+-	Детальная информация о криптографии [в этой белой книге от AWS](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf).
+-	[Эта публикация от Convox](https://convox.com/blog/encryption-at-rest) демонстрирует, почему и как использовать KMS для шифрования при хранении.
 
-### KMS Gotchas and Limitations
+### Ошибки и ограничения, связанные с KMS
 
--	🔸The Encrypt API only works with < 4KB of data. Larger data requires generating and managing a [data key](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys) in your application layer.
--	🔸KMS audit events are not available in the [CloudTrail Lookup Events API](http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html). You need to look find them in the raw .json.gz files that CloudTrail saves in S3.
--	🔸In order to encrypt a multi-part upload to S3, the KMS Key Policy needs to allow “kms:Decrypt” and “kms:GenerateDataKey*” in addition to “kms:Encrypt”, otherwise the upload will fail with an “AccessDenied” error.
--	🔸KMS keys are region specific — they are stored and can only be used in the region in which they are created. They can't be transferred to other regions.
--	🔸KMS keys have a key policy that must grant access to something to manage the key.  If you don't grant anything access to the key on creation, then you have to reach out to support to have the key policy reset [Reduce the Risk of the Key Becoming Unmanagable](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam).
--	🔸If you use a key policy to grant access to IAM roles or users and then delete the user/role, recreating the user or role won't grant them permission to the key again.
+-	🔸 Encrypt API работает только с данными < 4KB. Большие объемы данных требуют создания и использования[ключа данных](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys) на уровне приложения.
+-	🔸Аудит событий KMS не доступен через [CloudTrail Lookup Events API](http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html). Их можно посмотреть в сырых файлах .json.gz, которые CloudTrail сохраняет в S3.
+-	🔸Чтобы зашифровать загрузку нескольких частей на S3, политика ключей KMS должна разрешать “kms:Decrypt” и “kms:GenerateDataKey*” в дополнение к “kms:Encrypt”, иначе загрузка закончится неудачей с ошибкой “AccessDenied”.
+-	🔸Ключи KMS зависят от региона - они хранятся и могут использоваться только в том регионе, в котором они созданы. Их нельзя перенести в другие регионы.
+-	🔸Ключи KMS имеют политику ключей, которая должна предоставлять доступ к чему-либо для управления ключом. Если вы не предоставляете доступ к ключу при создании, вам нужно обратиться в службу поддержки, чтобы сбросить политику ключа [снизьте риски того, что ключ станет неуправляемым](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam).
+-	🔸Если вы используете политику ключей для предоставления доступа ролям или пользователям IAM, а затем удаляете пользователя/роль, воссоздание пользователя или роли не вернет разрешение на ключ.
 
 
 CloudFront
