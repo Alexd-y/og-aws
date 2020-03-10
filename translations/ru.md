@@ -1210,23 +1210,23 @@ Elastic IPs
 Glacier
 -------
 
-### Glacier Basics
+### Основы Glacier
 
--	📒 [Homepage](https://aws.amazon.com/glacier/) ∙ [Developer guide](http://docs.aws.amazon.com/amazonglacier/latest/dev/) ∙ [FAQ](https://aws.amazon.com/glacier/faqs/) ∙ [Pricing](https://aws.amazon.com/glacier/pricing/)
--	**Glacier** is a lower-cost alternative to S3 when data is infrequently accessed, such as for archival purposes.
--	It’s only useful for data that is rarely accessed. It generally takes [3-5 hours](https://aws.amazon.com/glacier/faqs/#dataretrievals) to fulfill a retrieval request.
--	AWS [has not officially revealed](https://en.wikipedia.org/wiki/Amazon_Glacier#Storage) the storage media used by Glacier; it may be low-spin hard drives or even tapes.
--	AWS has released an even more cost effective storate tier called [Glacier Deep Archive](https://aws.amazon.com/blogs/aws/new-amazon-s3-storage-class-glacier-deep-archive/) that offers ~12 hour retrieval latencies, but costs roughly a thousand dollars per month per petabyte. 
+-	📒 [Домашняя страница](https://aws.amazon.com/glacier/) ∙ [Руководство разработчика](http://docs.aws.amazon.com/amazonglacier/latest/dev/) ∙ [ЧаВо](https://aws.amazon.com/glacier/faqs/) ∙ [Расценки](https://aws.amazon.com/glacier/pricing/)
+-	**Glacier** - это более дешевая альтернатива S3, для тех случаев, когда доступ к данным необходим редко, как например для архивирования.
+-	Это полезно только для данных, к которым редко обращаются. Обычно выполнение запроса извлечения занимает [3-5 часов] (https://aws.amazon.com/glacier/faqs/#dataretrievals).
+-	AWS [официально не разглашает](https://en.wikipedia.org/wiki/Amazon_Glacier#Storage) устройство хранения используемого Glacier; возможно это медленные жесткие диски или даже магнитные ленты.
+-	AWS выпустил еще более экономичное хранилище, называемое [Glacier Deep Archive](https://aws.amazon.com/blogs/aws/new-amazon-s3-storage-class-glacier-deep-archive/), которое предлагает время извлечения ~12 часов, но стоит примерно 1000 долларов за петабайт в месяц.
 
-### Glacier Tips
+### Советы по Glacier
 
--	You can physically [ship](https://aws.amazon.com/blogs/aws/send-us-that-data/) your data to Amazon to put on Glacier on a USB or eSATA HDD.
+-	Вы можете физически [отправить по почте](https://aws.amazon.com/blogs/aws/send-us-that-data/) ваши данные в Amazon, чтобы поместить в Glacier, на жестком диске USB или eSATA.
 
-### Glacier Gotchas and Limitations
+### Ошибки и ограничения, связанные с Glacier
 
--	🔸Getting files off Glacier is glacially slow (typically 3-5 hours or more).
--	🔸Due to a fixed overhead per file (you pay per PUT or GET operation), uploading and downloading many small files on/to Glacier might be very expensive. There is also a 32k storage overhead per file. Hence it’s a good idea is to archive files before upload.
--	💸Be aware of the per-object costs of archiving S3 data to Glacier. [It costs $0.05 per 1,000 requests](https://aws.amazon.com/s3/pricing/). If you have large numbers of S3 objects of relatively small size, [it will take time to reach a break-even point](https://alestic.com/2012/12/s3-glacier-costs/) (initial archiving cost versus lower storage pricing).
+-	🔸Получение файлов с Glacier происходит очень-очень медленно (обычно 3-5 часов и более).
+-	🔸Из-за фиксированных накладных расходов на файл (вы платите за операции PUT или GET), загрузка и выгрузка множества маленьких файлов на / в Glacier может быть очень дорогой. Также необходимо учитывать хранение метаданных в размере 32кб дополнительно на файл. Следовательно, архивировать файлы перед загрузкой - хорошая идея.
+-	💸Помните о стоимости за каждый объект архивирования данных S3 в Glacier. [Это стоит $ 0,05 за 1000 запросов](https://aws.amazon.com/s3/pricing/). Если у вас есть большое количество объектов S3 относительно небольшого размера, [потребуется время, чтобы достичь точки безубыточности относительно хранения в S3](https://alestic.com/2012/12/s3-glacier-costs/) (первоначальная стоимость архивирования по сравнению с более низкой ценой хранения).
 
 RDS
 ---
