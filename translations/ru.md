@@ -53,7 +53,7 @@
 | [Kinesis Firehose](#kinesis-firehose) |  |  | [📙](#ошибки-и-ограничения-связанные-с--kinesis-firehose) |
 | [Kinesis Streams](#kinesis-streams) | [📗](#основы-kinesis-streams) | [📘](#советы-по-kinesis-streams) | [📙](#ошибки-и-ограничения-связанные-с-kinesis-streams) |
 | [KMS](#kms) | [📗](#основы-kms) | [📘](#советы-по-kms) | [📙](#ошибки-и-ограничения-связанные-с-kms) |
-| [Lambda](#lambda) | [📗](#lambda-basics) | [📘](#lambda-tips) | [📙](#lambda-gotchas-and-limitations) |
+| [Lambda](#lambda) | [📗](#основы-lambda) | [📘](#советы-по-lambda) | [📙](#ошибки-и-ограничения-связанные-с-lambda) |
 | [Load Balancers](#load-balancers) | [📗](#load-balancer-basics) | [📘](#load-balancer-tips) | [📙](#load-balancer-gotchas-and-limitations) |
 | [Mobile Hub](#mobile-hub) | [📗](#mobile-hub-basics) | [📘](#mobile-hub-tips) | [📙](#mobile-hub-gotchas-and-limitations) |
 | [OpsWorks](#opsworks) | [📗](#opsworks-basics) | [📘](#opsworks-tips) | [📙](#opsworks-gotchas-and-limitations) |
