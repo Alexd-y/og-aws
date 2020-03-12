@@ -57,7 +57,7 @@
 | [Load Balancers](#балансировщики-нагрузкиload-balancers) | [📗](#основы-load-balancer) | [📘](#советы-по-load-balancer) | [📙](#ошибки-и-ограничения-связанные-с-load-balancer) |
 | [Mobile Hub](#mobile-hub) | [📗](#основы-mobile-hub) | [📘](#советы-по-mobile-hub) | [📙](#ошибки-и-ограничения-связанные-с-mobile-hub) |
 | [OpsWorks](#opsworks) | [📗](#основы-opsworks) | [📘](#советы-по-opsworks) | [📙](#ошибки-и-ограничения-связанные-с-opsworks) |
-| [RDS](#rds) | [📗](#rds-basics) | [📘](#rds-tips) | [📙](#rds-gotchas-and-limitations) |
+| [RDS](#rds) | [📗](#основы-rds) | [📘](#советы-по-rds) | [📙](#ошибки-и-ограничения-связанные-с-rds) |
 | [RDS Aurora](#rds-aurora) | [📗](#rds-aurora-basics) | [📘](#rds-aurora-tips) | [📙](#rds-aurora-gotchas-and-limitations) |
 | [RDS Aurora MySQL](#rds-aurora-mysql) | [📗](#rds-aurora-mysql-basics) | [📘](#rds-aurora-mysql-tips) | [📙](#rds-aurora-mysql-gotchas-and-limitations) |
 | [RDS Aurora PostgreSQL](#rds-aurora-postgresql) | [📗](#rds-aurora-postgresql-basics) | [📘](#rds-aurora-postgresql-tips) | [📙](#rds-aurora-postgresql-gotchas-and-limitations) |
