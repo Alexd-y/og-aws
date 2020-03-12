@@ -2001,23 +2001,23 @@ Device Farm
 Mobile Hub
 ----------
 
-### Mobile Hub Basics
+### Основы Mobile Hub
 
-* 📒 [Homepage](https://aws.amazon.com/mobile/) ∙ [User guide](https://docs.aws.amazon.com/mobile-hub/latest/developerguide/) ∙ [FAQ](https://aws.amazon.com/mobile/faqs/) ∙ [Pricing](https://aws.amazon.com/mobile/pricing/)
-- **Mobile Hub** orchestrates multiple services to create an AWS backend for mobile and web applications.
-- Each _project_ in Mobile Hub has one _backend_ made up of configurable features, plus one or more _applications_.
- - Features include Analytics, Cloud Logic, Conversational Bots, Hosting and Streaming, NoSQL Database, User Data Storage and User Sign-In. Each feature uses one or two services to deliver a chunk of functionality.
- - Services used include [API Gateway](#api-gateway), [CloudFront](#cloudfront), Cognito, [Device Farm](#device-farm), [DynamoDB](#dynamodb), [Lambda](#lambda), Lex, Pinpoint and [S3](#S3).
- - Application SDKs exist for Android (Java), iOS (Swift), Web (JS) and React Native (JS). There is also a CLI for JavaScript applications.
+* 📒 [Домашняя страница](https://aws.amazon.com/mobile/) ∙ [Руководство пользователя](https://docs.aws.amazon.com/mobile-hub/latest/developerguide/) ∙ [ЧаВо](https://aws.amazon.com/mobile/faqs/) ∙ [Расценки](https://aws.amazon.com/mobile/pricing/)
+- **Mobile Hub** оркестрирует несколько сервисов для создания серверной части в AWS для мобильных и веб-приложений.
+- Каждый _проект_ в Mobile Hub имеет один _бэкенд_ состоящий из настраиваемых функций, и одно или более _приложений_.
+ - Функции включают в себя Аналитику(Analytics), Облачную логику(Cloud Logic), Разговорных ботов(Conversational Bots), Хостинг и стриминг(Hosting and Streaming), Базы данных NoSQL(NoSQL Database), Хранилище пользовательских данных(User Data Storage) и Авторизацию пользователей(User Sign-In). Каждая функция использует один или два сервиса, для предоставления куска функциональности.
+ - Используемые сервисы включают в себя, [API Gateway](#api-gateway), [CloudFront](#cloudfront), Cognito, [Device Farm](#device-farm), [DynamoDB](#dynamodb), [Lambda](#lambda), Lex, Pinpoint и [S3](#S3).
+ - Существуют SDK для Android (Java), iOS (Swift), Web (JS) и React Native (JS). Также имеется CLI для приложений JavaScript.
 
-### Mobile Hub Tips
-- The Mobile Hub [console](https://console.aws.amazon.com/mobilehub/home#/) has starter kits and tutorials for various app platforms.
-- The CLI allows local development of Lambda code (JS by default) with `awsmobile {pull|push}` commands, to sync from cloud to folder, and back again.
-- Mobile Hub itself is free, but each of the services has its own pricing model.
+### Советы по Mobile Hub
+- [Консоль Mobile Hub](https://console.aws.amazon.com/mobilehub/home#/) содержит наборы для старта и учебные пособия для различных платформ.
+- CLI позволяет проводить локальную разработку Lambda-кода (по умолчанию на JS) с использованием команд `awsmobile {pull|push}` для синхронизации локальной папки с облаком и обратно.
+- Mobile Hub сам по себе бесплатен, но каждый используемый сервис имеет свою модель оплаты и расценок.
 
-### Mobile Hub Gotchas and Limitations
-- 🔸The Cloud API feature allows importing an existing Lambda function instead of defining a new one, but there are some rough edges with the CLI. Check the GitHub [issues](https://github.com/aws/awsmobile-cli/issues).
-- ❗Mobile Hub uses CloudFormation under the covers, and gets confused when a service is changed outside of the Mobile Hub console.
+### Ошибки и ограничения, связанные с Mobile Hub
+- 🔸Функция Cloud API позволяет импортировать существующую функцию Lambda вместо определения новой, но с CLI есть некоторые косяки. Для подробной информации смотрите в GitHub [issues](https://github.com/aws/awsmobile-cli/issues).
+- ❗Mobile Hub использует CloudFormation под капотом и сильно удивляется, когда сервис меняется вне консоли Mobile Hub.
 
 IoT
 ---
