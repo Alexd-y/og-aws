@@ -55,7 +55,7 @@
 | [KMS](#kms) | [📗](#основы-kms) | [📘](#советы-по-kms) | [📙](#ошибки-и-ограничения-связанные-с-kms) |
 | [Lambda](#lambda) | [📗](#основы-lambda) | [📘](#советы-по-lambda) | [📙](#ошибки-и-ограничения-связанные-с-lambda) |
 | [Load Balancers](#балансировщики-нагрузкиload-balancers) | [📗](#основы-load-balancer) | [📘](#советы-по-load-balancer) | [📙](#ошибки-и-ограничения-связанные-с-load-balancer) |
-| [Mobile Hub](#mobile-hub) | [📗](#mobile-hub-basics) | [📘](#mobile-hub-tips) | [📙](#mobile-hub-gotchas-and-limitations) |
+| [Mobile Hub](#mobile-hub) | [📗](#основы-mobile-hub) | [📘](#советы-по-mobile-hub) | [📙](#ошибки-и-ограничения-связанные-с-mobile-hub) |
 | [OpsWorks](#opsworks) | [📗](#opsworks-basics) | [📘](#opsworks-tips) | [📙](#opsworks-gotchas-and-limitations) |
 | [RDS](#rds) | [📗](#rds-basics) | [📘](#rds-tips) | [📙](#rds-gotchas-and-limitations) |
 | [RDS Aurora](#rds-aurora) | [📗](#rds-aurora-basics) | [📘](#rds-aurora-tips) | [📙](#rds-aurora-gotchas-and-limitations) |
@@ -2017,7 +2017,7 @@ Mobile Hub
 
 ### Ошибки и ограничения, связанные с Mobile Hub
 - 🔸Функция Cloud API позволяет импортировать существующую функцию Lambda вместо определения новой, но с CLI есть некоторые косяки. Для подробной информации смотрите в GitHub [issues](https://github.com/aws/awsmobile-cli/issues).
-- ❗Mobile Hub использует CloudFormation под капотом и сильно удивляется, когда сервис меняется вне консоли Mobile Hub.
+- ❗Mobile Hub использует CloudFormation под капотом и сильно тупит, когда сервис меняется вне консоли Mobile Hub.
 
 IoT
 ---
