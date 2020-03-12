@@ -54,7 +54,7 @@
 | [Kinesis Streams](#kinesis-streams) | [📗](#основы-kinesis-streams) | [📘](#советы-по-kinesis-streams) | [📙](#ошибки-и-ограничения-связанные-с-kinesis-streams) |
 | [KMS](#kms) | [📗](#основы-kms) | [📘](#советы-по-kms) | [📙](#ошибки-и-ограничения-связанные-с-kms) |
 | [Lambda](#lambda) | [📗](#основы-lambda) | [📘](#советы-по-lambda) | [📙](#ошибки-и-ограничения-связанные-с-lambda) |
-| [Load Balancers](#load-balancers) | [📗](#load-balancer-basics) | [📘](#load-balancer-tips) | [📙](#load-balancer-gotchas-and-limitations) |
+| [Load Balancers](#балансировщики-нагрузкиload-balancers) | [📗](#основы-load-balancer) | [📘](#советы-по-load-balancer) | [📙](#ошибки-и-ограничения-связанные-с-load-balancer) |
 | [Mobile Hub](#mobile-hub) | [📗](#mobile-hub-basics) | [📘](#mobile-hub-tips) | [📙](#mobile-hub-gotchas-and-limitations) |
 | [OpsWorks](#opsworks) | [📗](#opsworks-basics) | [📘](#opsworks-tips) | [📙](#opsworks-gotchas-and-limitations) |
 | [RDS](#rds) | [📗](#rds-basics) | [📘](#rds-tips) | [📙](#rds-gotchas-and-limitations) |
