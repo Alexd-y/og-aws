@@ -1319,55 +1319,56 @@ RDS SQL Server
 
 RDS Aurora
 ----------
-### RDS Aurora Basics
-Aurora is a cloud only database service designed to provide a distributed, fault-tolerant relational database with self-healing storage and auto-scaling up to 64TB per instance.  It currently comes in two versions, a MySQL compatible system, and a PostgreSQL compatible system.
+### Основы RDS Aurora
+Aurora - это облачная служба баз данных, предназначенная для предоставления распределенной, отказоустойчивой реляционной базы данных с самовосстанавливающимся хранилищем и автоматическим масштабированием до 64 ТБ. В настоящее время она выпускается в двух версиях: совместимая с MySQL и совместимая с PostgreSQL.
 
 RDS Aurora MySQL
 ----------------
 
-### RDS Aurora MySQL Basics
+### Основы RDS Aurora MySQL
 
--	Amazon’s proprietary fork of MySQL intended to scale up for high concurrency workloads. Generally speaking, individual query performance under Aurora is not expected to improve significantly relative to MySQL or MariaDB, but Aurora is intended to maintain performance while executing many more queries concurrently than an equivalent MySQL or MariaDB server could handle.
--	[Notable new features](http://www.slideshare.net/AmazonWebServices/amazon-aurora-amazons-new-relational-database-engine) include:
-	-	Log-structured storage instead of B-trees to improve write performance.
-	-	Out-of-process buffer pool so that databases instances can be restarted without clearing the buffer pool.
-	-	The underlying physical storage is a specialized SSD array that automatically maintains 6 copies of your data across 3 AZs.
-	-	Aurora read replicas share the storage layer with the write master which significantly reduces replica lag, eliminates the need for the master to write and distribute the binary log for replication, and allows for zero-data-loss failovers from the master to a replica. The master and all the read replicas that share storage are known collectively as an **Aurora cluster**. Read replicas can span up to [5 regions](https://aws.amazon.com/about-aws/whats-new/2018/09/amazon-aurora-databases-support-up-to-five-cross-region-read-replicas/).
+-	Проприетарный форк MySQL от Amazon, созданный для масштабирования высококонкурентных рабочих нагрузок. В общем говоря, производительность отдельных запросов в Aurora не особенно повысится относительно MySQL и MariaDB, но Aurora создана для поддержки этого уровня производительности при обеспечении запуска гораздо большего количества запросов одновременно, чем может выдержать эквивалентный сервер MySQL или MariaDB.
+-	[Известные новые функции](http://www.slideshare.net/AmazonWebServices/amazon-aurora-amazons-new-relational-database-engine) включают в себя:
+	-	Журнально-структурированное хранилище вместо B-tree для повышения производительности записи.
+	-	Независимый буферный пул, так что инстансы баз данных могут быть перезапущены без очистки буфера.
+	-	Базовое физическое хранилище представляет собой специализированный массив SSD, который автоматически поддерживает 6 копий ваших данных в 3 зонах доступности(AZ).
+	-	Реплики только-для-чтения в Aurora используют один уровень хранения с мастером, что существенно снижает лаг реплики, устраняет необходимость записи и отправки бинарных логов для репликации с мастера, и позволяет производить аварийное переключение с мастера на реплику без потерь данных. Мастер и реплики для чтения, которые используют одно хранилище, совместно называются **кластер Aurora**. Реплики могут размещаться в масштабах до [5 регионов](https://aws.amazon.com/about-aws/whats-new/2018/09/amazon-aurora-databases-support-up-to-five-cross-region-read-replicas/).
 
-### RDS Aurora MySQL Tips
+### Советы по RDS Aurora MySQL
 
--	In order to take advantage of Aurora’s higher concurrency, applications should be configured with large database connection pools and should execute as many queries concurrently as possible. For example, Aurora servers have been tested to produce increasing performance on some OLTP workloads with [up to 5,000 connections](http://www.slideshare.net/AmazonWebServices/amazon-aurora-amazons-new-relational-database-engine/31).
--	[Aurora scales well with multiple CPUs](https://www.percona.com/blog/2016/05/26/aws-aurora-benchmarking-part-2/) and may require a large instance class for optimal performance.
--	The easiest migration path to Aurora is restoring a database snapshot from MySQL 5.6 or 5.7. The next easiest method is restoring a dump from a MySQL-compatible database such as MariaDB. For [low-downtime migrations](https://aws.amazon.com/blogs/aws/amazon-aurora-update-spatial-indexing-and-zero-downtime-patching/) from other MySQL-compatible databases, you can set up an Aurora instance as a replica of your existing database. If none of those methods are options, Amazon offers a fee-based data migration service.
--	You can replicate [from an Aurora cluster to MySQL or to another Aurora cluster](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Overview.Replication.MySQLReplication.html). This requires binary logging to be enabled and is not as performant as native Aurora replication.
--	Because Aurora read replicas are the [equivalent of a multi-AZ backup](http://stackoverflow.com/a/32428651/129052) and they can be configured as zero-data-loss failover targets, there are fewer scenarios in which the creation of a multi-AZ Aurora instance is required.
+-	Чтобы воспользоваться преимуществами более высокого уровня параллелизма в Aurora, приложения должны быть настроены с большими пулами соединений с базой данных и выполнять как можно больше запросов одновременно. Например, сервера Aurora тестировались в целях получения более высокой производительности на некоторых рабочих нагрузках OLTP с примерно [5,000 соединениями](http://www.slideshare.net/AmazonWebServices/amazon-aurora-amazons-new-relational-database-engine/31).
+-	[Aurora прекрасно масштабируется с несколькими CPU](https://www.percona.com/blog/2016/05/26/aws-aurora-benchmarking-part-2/) и может потребовать высокий класс инстанса для оптимальной производительности.
+-	Простейшим путем миграции на Aurora является восстановление базы данных из снапшота с MySQL 5.6 или 5.7. Следующим простейшим методом является восстановление дампа с MySQL совместимой СУБД, такой как MariaDB. Для [миграции с малым прерыванием работы](https://aws.amazon.com/blogs/aws/amazon-aurora-update-spatial-indexing-and-zero-downtime-patching/) с других MySQL-совместимых СУБД, вы можете настроить инстанс Aurora, как реплику вашей существующей СУБД. Если же ни один из этих вариантов не подошел, Amazon предлагает платный сервис миграции данных.
+-	Вы можете реплицировать данные [с кластера Aurora в MySQL или на другоой кластер Aurora](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Overview.Replication.MySQLReplication.html). Это требует включения опции бинарного логирования и работает не так, как родная репликация Aurora.
+-	Так как реплики Aurora являются [аналогом распределенного по различным зонам доступности резервного копирования](http://stackoverflow.com/a/32428651/129052) и могут быть сконфигурированы как цели для аварийного переключения без потери данных, существует малое количество сценариев, в которых вам потребуется создание распределенного по зонам доступности инстанса Aurora.
 
-### RDS Aurora MySQL Gotchas and Limitations
+### Ошибки и ограничения, связанные с  RDS Aurora MySQL
 
-- 🔸[Aurora 1.x is based on MySQL 5.6.x](https://news.ycombinator.com/item?id=12415693) with some cherry-picking of later MySQL features. It is missing most 5.7 features as well as some online DDL features introduced in 5.6.17.
-- 🔸[Aurora 2.x is based on MySQL 5.7.x](https://aws.amazon.com/about-aws/whats-new/2018/02/amazon-aurora-is-compatible-with-mysql-5-7/)
-- Aurora does not support GTID transactions in either the 5.6/Aurora 1.x or the 5.7/Aurora 2.x release lines.
-- Aurora maximum cluster size is 64 TB
+- 🔸[Aurora 1.x основана на MySQL 5.6.x](https://news.ycombinator.com/item?id=12415693) с некоторой подборкой более поздних функций MySQL. В ней отсутствуют большинство функций 5.7, а также некоторые онлайн-функции DDL, представленные в 5.6.17.
+- 🔸[Aurora 2.x основана на MySQL 5.7.x](https://aws.amazon.com/about-aws/whats-new/2018/02/amazon-aurora-is-compatible-with-mysql-5-7/)
+- Aurora не поддерживает транзакции GTID как в 5.6/Aurora 1.x, так и в 5.7/Aurora 2.x.
+- Максимальный размер кластера Aurora - 64 TB
 
 RDS Aurora PostgreSQL
 ---------------------
 
-### RDS Aurora PostgreSQL Basics
+### Основы RDS Aurora PostgreSQL
 
-- Amazon’s proprietary fork of PostgreSQL, intended to scale up for high concurrency workloads while maintaining ease of use. Currently based on PostgreSQL 9.6.
-- Higher throughput (up to 3x with similar hardware).
-- Automatic storage scale in 10GB increments up to 64TB.
-- Low latency read replicas that share the storage layer with the master which significantly reduces replica lag.
-- Point in time recovery.
-- Fast database snapshots.
+- Проприетарный форк PostgreSQL от Amazon, созданный для масштабирования высококонкурентных рабочих нагрузок, но с сохранением легкости пользования. На текущий момент основана на PostgreSQL 9.6.
+- Высокая пропускная способность (вплоть до трехкратного превышения показателей на том же оборудовании).
+- Автоматическое масштабирование хранилища инкрементами по 10GB до 64TB.
+- Реплики для чтения с низкой задержкой, которые используют совместно с мастером уровень хранилища, что серьезно снижает лаг реплики.
+- Восстановление на любую точку времени.
+- Быстрые снапшоты баз данных.
 
-### RDS Aurora PostgreSQL Tips
-- Aurora Postgres by default is supposed to utilize high connection rates and for this reason connection pooling must be configured accordingly.
-- Because Aurora is based on PostgreSQL 9.6, it lacks features like declarative partitioning or logical replication.
+### Советы по RDS Aurora PostgreSQL
+- Aurora Postgres по умолчанию предполагает утилизацию большого количества соединения, поэтому пул соединений необходимо настроить соотвественным образом.
+- Так как Aurora основана на PostgreSQL 9.6, в нем отсутствуют такие функции, как декларативное разбиение или логическая репликация.
 
-### RDS Aurora PostgreSQL Gotchas and Limitations
-- Aurora PostgreSQL falls behind normal RDS when it comes to available versions, so if you need features from the latest PostgreSQL version you might be better off with plain RDS.
-- Patching and bug fixing is separate from open source PostgreSQL.
+### Ошибки и ограничения, связанные с RDS Aurora PostgreSQL
+
+- Aurora PostgreSQL отстает от обычного RDS, когда дело доходит до доступных версий, поэтому, если вам нужны функции из последней версии PostgreSQL, вам может быть лучше использовать обычный RDS.
+- Патчинг и исправление багов является отдельным от PostgreSQL.
 
 ElastiCache
 -----------
