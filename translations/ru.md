@@ -61,9 +61,9 @@
 | [RDS Aurora](#rds-aurora) | [📗](#основы-rds-aurora) | [📘](#rds-aurora-tips) | [📙](#rds-aurora-gotchas-and-limitations) |
 | [RDS Aurora MySQL](#rds-aurora-mysql) | [📗](##основы-rds-aurora-mysql) | [📘](#советы-по-rds-aurora-mysql) | [📙](#ошибки-и-ограничения-связанные-с--rds-aurora-mysql) |
 | [RDS Aurora PostgreSQL](#rds-aurora-postgresql) | [📗](#основы-rds-aurora-postgresql) | [📘](#советы-по-rds-aurora-postgresql) | [📙](#ошибки-и-ограничения-связанные-с-rds-aurora-postgresql) |
-| [RDS MySQL and MariaDB](#rds-mysql-and-mariadb) | [📗](#rds-mysql-and-mariadb-basics) | [📘](#rds-mysql-and-mariadb-tips) | [📙](#rds-mysql-and-mariadb-gotchas-and-limitations) |
-| [RDS PostgreSQL](#rds-postgresql) | [📗](#rds-postgresql-basics) | [📘](#rds-postgresql-tips) | [📙](#rds-postgresql-gotchas-and-limitations) |
-| [RDS SQL Server](#rds-sql-server) | [📗](#rds-sql-server-basics) | [📘](#rds-sql-server-tips) | [📙](#rds-sql-server-gotchas-and-limitations) |
+| [RDS MySQL и MariaDB](#rds-mysql-и-mariadb) | [📗](#основы-rds-mysql-и-mariadb) | [📘](#советы-по-rds-mysql-и-mariadb) | [📙](#ошибки-и-ограничения-связанные-с--rds-mysql-и-mariadb) |
+| [RDS PostgreSQL](#rds-postgresql) | [📗](#основы-rds-postgresql) | [📘](#советы-по-rds-postgresql) | [📙](#ошибки-и-ограничения-связанные-с--rds-postgresql) |
+| [RDS SQL Server](#rds-sql-server) | [📗](#основы-rds-sql-server) | [📘](#советы-по-rds-sql-server) | [📙](#ошибки-и-ограничения-связанные-с--rds-sql-server) |
 | [Redshift](#redshift) | [📗](#redshift-basics) | [📘](#redshift-tips) | [📙](#redshift-gotchas-and-limitations) |
 | [Route 53](#route-53) | [📗](#route-53-basics) | [📘](#route-53-tips) | [📙](#route-53-gotchas-and-limitations) |
 | [S3](#s3) | [📗](#s3-basics) | [📘](#s3-tips) | [📙](#s3-gotchas-and-limitations) |
