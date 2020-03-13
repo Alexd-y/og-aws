@@ -58,9 +58,9 @@
 | [Mobile Hub](#mobile-hub) | [📗](#основы-mobile-hub) | [📘](#советы-по-mobile-hub) | [📙](#ошибки-и-ограничения-связанные-с-mobile-hub) |
 | [OpsWorks](#opsworks) | [📗](#основы-opsworks) | [📘](#советы-по-opsworks) | [📙](#ошибки-и-ограничения-связанные-с-opsworks) |
 | [RDS](#rds) | [📗](#основы-rds) | [📘](#советы-по-rds) | [📙](#ошибки-и-ограничения-связанные-с-rds) |
-| [RDS Aurora](#rds-aurora) | [📗](#rds-aurora-basics) | [📘](#rds-aurora-tips) | [📙](#rds-aurora-gotchas-and-limitations) |
-| [RDS Aurora MySQL](#rds-aurora-mysql) | [📗](#rds-aurora-mysql-basics) | [📘](#rds-aurora-mysql-tips) | [📙](#rds-aurora-mysql-gotchas-and-limitations) |
-| [RDS Aurora PostgreSQL](#rds-aurora-postgresql) | [📗](#rds-aurora-postgresql-basics) | [📘](#rds-aurora-postgresql-tips) | [📙](#rds-aurora-postgresql-gotchas-and-limitations) |
+| [RDS Aurora](#rds-aurora) | [📗](#основы-rds-aurora) | [📘](#rds-aurora-tips) | [📙](#rds-aurora-gotchas-and-limitations) |
+| [RDS Aurora MySQL](#rds-aurora-mysql) | [📗](##основы-rds-aurora-mysql) | [📘](#советы-по-rds-aurora-mysql) | [📙](#ошибки-и-ограничения-связанные-с--rds-aurora-mysql) |
+| [RDS Aurora PostgreSQL](#rds-aurora-postgresql) | [📗](#основы-rds-aurora-postgresql) | [📘](#советы-по-rds-aurora-postgresql) | [📙](#ошибки-и-ограничения-связанные-с-rds-aurora-postgresql) |
 | [RDS MySQL and MariaDB](#rds-mysql-and-mariadb) | [📗](#rds-mysql-and-mariadb-basics) | [📘](#rds-mysql-and-mariadb-tips) | [📙](#rds-mysql-and-mariadb-gotchas-and-limitations) |
 | [RDS PostgreSQL](#rds-postgresql) | [📗](#rds-postgresql-basics) | [📘](#rds-postgresql-tips) | [📙](#rds-postgresql-gotchas-and-limitations) |
 | [RDS SQL Server](#rds-sql-server) | [📗](#rds-sql-server-basics) | [📘](#rds-sql-server-tips) | [📙](#rds-sql-server-gotchas-and-limitations) |
