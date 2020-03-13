@@ -1251,71 +1251,71 @@ RDS
 -	🔸**Миграция баз данных в RDS:** При импорте вашей базы данных в RDS убедитесь, что вы учитываете настройки окна обслуживания. Если резервное копирование выполняется одновременно с импортом, импорт может занять значительно больше времени, чем вы ожидали.
 -	[Размеры баз данных ограничены](https://aws.amazon.com/about-aws/whats-new/2015/06/amazon-rds-increases-storage-limits-to-6TB-for-piops-and-gp2/) **6TB** для всех СУБД, за исключением SQL Server у которого лимит - **4TB** и Aurora, которая поддерживает базы данных до  **64TB**.
 
-RDS MySQL and MariaDB
+RDS MySQL и MariaDB
 ---------------------
 
-### RDS MySQL and MariaDB Basics
+### Основы RDS MySQL и MariaDB
 
--      RDS offers MySQL versions 5.5, 5.6, 5.7 and 5.8.
--      RDS offers MariaDB versions 10.0, 10.1, 10.2 and 10.3.
+-      RDS предлагает MySQL версий 5.5, 5.6, 5.7 и 5.8.
+-      RDS предлагает MariaDB версий 10.0, 10.1, 10.2 и 10.3.
 
-### RDS MySQL and MariaDB Tips
+### Советы по RDS MySQL и MariaDB
 
--	MySQL RDS allows access to [binary logs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html#USER_LogAccess.MySQL.BinaryFormat).
--	Multi-AZ instances of MySQL transparently replicate data across AZs using DRBD. Automated backups of multi-AZ instances [run off the backup instance](https://www.percona.com/live/mysql-conference-2014/sessions/rds-mysql-tips-patterns-and-common-pitfalls) to reduce latency spikes on the primary.
--	🔸**Performance Schema:** While [Performance Schema](http://dev.mysql.com/doc/refman/en/performance-schema.html) is enabled by default in MySQL 5.6.6 and later, it is disabled by default in all versions of RDS. If you wish to enable Performance Schema, a reboot of the RDS instance will be required.
--	🔸**MySQL vs MariaDB vs Aurora:** If you prefer a MySQL-style database but are starting something new, you probably should consider Aurora and MariaDB as well. **Aurora** has increased availability and is the next-generation solution. That said, Aurora [may not be](http://blog.takipi.com/benchmarking-aurora-vs-mysql-is-amazons-new-db-really-5x-faster/) that much faster than MySQL for certain workloads. **MariaDB**, the modern [community fork](https://en.wikipedia.org/wiki/MariaDB) of MySQL, [likely now has the edge over MySQL](http://cloudacademy.com/blog/mariadb-vs-mysql-aws-rds/) for many purposes and is supported by RDS.
+-	MySQL RDS позволяет доступ к [бинарным логам](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html#USER_LogAccess.MySQL.BinaryFormat).
+-	Инстансы MySQL при развертывании в нескольких зонах доступности прозрачно реплицируют данные между зонами доступности используя DRBD. Автоматическое резервное копирование инстансов при развертывании в нескольких зонах доступности [запускается на резервном инстансе](https://www.percona.com/live/mysql-conference-2014/sessions/rds-mysql-tips-patterns-and-common-pitfalls) чтобы убрать возможность всплесков на основном сервере.
+-	🔸**Performance Schema:** Хотя [Performance Schema](http://dev.mysql.com/doc/refman/en/performance-schema.html) включена по умолчанию в MySQL 5.6.6 и в более поздних версиях, она выключена по умолчанию в RDS. Если вы хотите включить Performance Schema, потребуется перезагрузка инстанса RDS.
+-	🔸**MySQL или MariaDB или Aurora:** Если вы предпочитаете СУБД в стиле MySQL, но начинаете что-то новое, вам стоило бы рассмотреть Aurora и MariaDB. **Aurora** имеет повышенную доступонсть и являюется решением следующего поколения. Тем не менее Aurora [может и не быть](http://blog.takipi.com/benchmarking-aurora-vs-mysql-is-amazons-new-db-really-5x-faster/) намного быстрее MySQL для конкретных рабочих нагрузок. **MariaDB** - современный [комьюнити форк](https://en.wikipedia.org/wiki/MariaDB) MySQL, [похоже, что имеет преимущества над MySQL](http://cloudacademy.com/blog/mariadb-vs-mysql-aws-rds/) для многих целей, поддерживается RDS.
 
-### RDS MySQL and MariaDB Gotchas and Limitations
+### Ошибки и ограничения, связанные с  RDS MySQL и MariaDB
 
--	🔸**No SUPER privileges.** RDS provides some [stored procedures](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.SQLRef.html) to perform some tasks that require SUPER privileges such as starting or stopping replication.
--	🔸You can replicate to non-RDS instances of MySQL, but [replication to these instances will break during AZ failovers](https://www.percona.com/live/mysql-conference-2014/sessions/rds-mysql-tips-patterns-and-common-pitfalls).
--	🔸There is no ability to manually CHANGE MASTER on replicas, so they must all be rebuilt after a failover of the master.
--	🔸Most global options are exposed only via [DB parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html). Some variables that were introduced in later MySQL dot releases such as [avoid_temporal_upgrade](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_avoid_temporal_upgrade) in MySQL 5.6.24 are not made available in RDS's 5.6.x parameter group and making use of them requires an upgrade to MySQL 5.7.x.
--	🔸RDS features such as Point-In-Time restore and snapshot restore are not supported on MyISAM tables. Ensure you lock and flush each MyISAM table before executing a snapshot or backup operation to ensure consistency.
+-	🔸**Никаких SUPER привилегий** RDS предоставляет несколько [хранимых процедур](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.SQLRef.html) для выполнения некоторых задач, которым требуются SUPER привилегии, например запуск и остановка репликации.
+-	🔸Вы можете реплицировать на инстансы MySQL, не относящиеся к RDS, но [репликация на эти инстансы будет прерываться во время аварийного переключения между зонами доступности](https://www.percona.com/live/mysql-conference-2014/sessions/rds-mysql-tips-patterns-and-common-pitfalls).
+-	🔸Отсуствует возможность ручной смены мастера на репликах, так что их все необходимо будет пересоздать после аварийного переключения мастера.
+-	🔸Большинство глобальных опций доступно только в [группах параметров БД(DB parameter groups)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html). Некоторые переменные, которые были введены в более поздних точечных выпусках MySQL, такие как [avoid_temporal_upgrade](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_avoid_temporal_upgrade) в MySQL 5.6.24, не доступны в группах параметров для версии 5.6.х в RDS и их использование требует обновления на MySQL 5.7.x.
+-	🔸Функции RDS, такие как восстановление на конкретную точку времени и восстановление со снапшота не поддерживаются для таблиц MyISAM. Убедитесь, что вы заблокировали и очистили каждую таблицу MyISAM перед выполнением снапшота или операции резервного копирования, чтобы обеспечить консистентность.
 
 RDS PostgreSQL
 --------------
 
-### RDS PostgreSQL Basics
+### Основы RDS PostgreSQL
 
-- RDS offers PostgreSQL 9.3, 9.4, 9.5, 9.6, and 10.
+- RDS предлагает PostgreSQL 9.3, 9.4, 9.5, 9.6 и 10.
 
-### RDS PostgreSQL Tips
-- Recently Logical Replication is being supported, [both as subscriber and publisher](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.version104).
-- Supports a relatively large range of native [extensions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.FeatureSupport.Extensions).
-- RDS PostgreSQL 10 Supports native partitioning and most of the major features and tunables.
-- Supports connections over SSL.
-- Supports multi A-Z and Point-in-time recovery.
+### Советы по RDS PostgreSQL
 
+- Недавно была добавлена поддержка логической репликации, [как публикации, так и подписки](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.version104).
+- Поддерживает довольно большой диапазон родных [расширений](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.FeatureSupport.Extensions).
+- RDS PostgreSQL 10 поддерживает собственный партишенинг и большинство основных функций и настроек.
+- Поддерживает соединение через SSL.
+- Поддерживает восстановление между зонами доступности и к конкретной точке во времени.
 
-### RDS PostgreSQL Gotchas and Limitations
-- No superuser privileges. RDS provides a role `rds_superuser` that can do most of the needed operations but there are some limitations.
-- Some major features are delayed compared to open source PostgreSQL.
-- By default RDS is spec’d with general purpose SSD , if you need better performance you have to spec provisioned IOPS SSD.
-- You can't use RDS as a replica outside RDS without using logical replication.
-- There are settings that cannot be changed and most of the settings that can change can only be changed using database parameter groups.
-- It’s harder to troubleshoot performance problems since you have no access to the host.
-- Be sure to verify that all the [extensions](https://www.postgresql.org/docs/current/static/view-pg-available-extensions.html) you need are available. If you are using an extension not listed there, you will need to come up with a work around, or deploy your own database in EC2.
-- Many Postgres utilities and maintenance items expect command line access, that can usually be satisfied by using an external ec2 server.
+### Ошибки и ограничения, связанные с  RDS PostgreSQL
+- Отсутствют суперпользовательские привилегии. RDS предоставляет роль `rds_superuser`, которая может выполнять большинство из необходимых операций, однако имеются некоторые ограничения.
+- Добавление некоторых важных функций запаздывает по сравнению с PostgreSQL.
+- По умолчанию RDS поставляется с SSD общего назначения, если вам необходима лучшая производительность, вам необходимо выбрать SSD с выделенными IOPS.
+- Вы не можете использовать RDS, как реплику с внешнего сервера без использования логической репликации.
+- Существуют параметры, которые нельзя изменить, и большинство параметров, которые можно изменить, можно изменить только с помощью групп параметров базы данных.
+- Ввиду того, что у вас нет доступа на хост - сложнее решать проблемы производительности.
+- Убедитесь, что все необходимые [расширения](https://www.postgresql.org/docs/current/static/view-pg-available-extensions.html) доступны. Если вы используете расширение, которого нет в списке, вам нужно будет найти обходной варант или развернуть собственную базу данных в EC2.
+- Многие утилиты и элементы обслуживания Postgres требуют доступа из командной строки, что обычно можно выполнить с помощью внешнего сервера ec2.
 
 RDS SQL Server
 --------------
 
-### RDS SQL Server Basics
+### Основы RDS SQL Server
 
--	[RDS offers SQL Server 2008 R2, 2012, 2014, 2016 and 2017](https://aws.amazon.com/rds/sqlserver/) including Express, Web, Standard and Enterprise.
+-	[RDS предлагает SQL Server 2008 R2, 2012, 2014, 2016 и 2017](https://aws.amazon.com/rds/sqlserver/) включая Express, Web, Standard и Enterprise.
 
-### RDS SQL Server Tips
+### Советы по RDS SQL Server
 
--	Recently added support for [backup and restore to/from S3](https://www.brentozar.com/archive/2016/07/holy-cow-amazon-rds-sql-server-just-changed-everything/) which may make it an attractive [DR option](https://aws.amazon.com/blogs/aws/amazon-rds-for-sql-server-support-for-native-backuprestore-to-amazon-s3/) for on-premises installations.
+-	Недавно добавленная поддержка [резервныого копирования и восстановления в/из S3](https://www.brentozar.com/archive/2016/07/holy-cow-amazon-rds-sql-server-just-changed-everything/) делает привлекательным [вариантом восстановления в случае аварии](https://aws.amazon.com/blogs/aws/amazon-rds-for-sql-server-support-for-native-backuprestore-to-amazon-s3/) для локальных серверов.
 
-### RDS SQL Server Gotchas and Limitations
+### Ошибки и ограничения, связанные с  RDS SQL Server
 
--	🔸The user is granted only db_owner privileges for each database on the instance.
--	🔸Storage cannot be expanded for existing databases. If you need more space, you must restore your database on a new instance with larger storage.
--	🔸There is a **16TB** database size limit for non-Express editions. There is also a minimum storage size, 20GB for Web and Express, 200GB for Standard and Enterprise.
--	🔸Limited to [30 databases per instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html)
+-	🔸Пользователь имеет только права db_owner для каждой базы в инстансе.
+-	🔸Хранилище не может быть расширено для существующих баз данных. Если вам необходимо больше места, вам необходимо восстановить вашу базу данных на новом инстансе с большим хранилищем.
+-	🔸**16TB** - ограничение максимального размера базы данных для всех версий, кроме Express. Также есть минимальное ограничение размера, 20GB для Web и Express, 200GB для Standard и Enterprise.
+-	🔸Есть ограничение в [30 баз данных на инстанс](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html)
 
 RDS Aurora
 ----------
