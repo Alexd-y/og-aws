@@ -735,10 +735,10 @@ S3
 	-	[Одна зона - нечастный доступ - S3(S3 - One Zone - IA)](https://aws.amazon.com/s3/storage-classes/#__) предназначен для данных, доступ к которым осуществляется реже, но при необходимости требуется быстрый доступ. В отличие от других классов хранения S3, которые хранят данные как минимум в трех зонах доступности (AZ), S3 One Zone-IA хранит данные в одном AZ и стоит на 20% дешевле, чем S3 Standard-IA.
 	-	[Glacier](#glacier) является отдельной альтернативой, обсуждаемой как отдельный продукт.
 	-	Ознакомьтесь со [сравнительной таблицей](#storage-durability-availability-and-price).
--	⏱**Performance:** Maximizing S3 performance means improving overall throughput in terms of bandwidth and number of operations per second.
-	-	S3 is highly scalable, so in principle you can get arbitrarily high throughput. (A good example of this is [S3DistCp](https://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/UsingEMR_s3distcp.html).)
-	-	But usually you are constrained by the pipe between the source and S3 and/or the level of concurrency of operations.
-	-	Throughput is of course highest from within AWS to S3, and between EC2 instances and S3 buckets that are in the same region.
+-	⏱**Производительность:** Максимизация производительности S3 означает улучшение общей пропускной способности с точки зрения пропускной способности и количества операций в секунду.
+	-	S3 обладает высокой масштабируемостью, поэтому, в принципе, вы можете получить произвольно высокую пропускную способность. (Хороший пример - [S3DistCp](https://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/UsingEMR_s3distcp.html).)
+	-	Однако, обычно вы ограничены пропускной способностью канала между источником и S3 и/или уровнем параллелизма операций.
+	-	Пропускная способность, конечно, самая высокая между AWS и S3(внутри AWS), а также между инстансами EC2 и бакетами S3, которые находятся в одном регионе.
 	-	Bandwidth from EC2 depends on instance type. See the “Network Performance” column at [ec2instances.info](http://www.ec2instances.info/).
 	-	Throughput of many objects is extremely high when data is accessed in a distributed way, from many EC2 instances. It’s possible to read or write objects from S3 from hundreds or thousands of instances at once.
 	-	However, throughput is very limited when objects accessed sequentially from a single instance. Individual operations take many milliseconds, and bandwidth to and from instances is limited.
