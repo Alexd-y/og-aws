@@ -1637,10 +1637,10 @@ Step Functions
         -   выберите имя конечного автомата в "хлебных крошках"(навигационной цепочке сверху)
         -   запустите новое выполнение, вставив входные данные, которые вы скопировали ранее
 
-### Step Functions Gotchas and Limitations
--   Step Functions are free tier eligible up to an initial 4000 transitions per month. Thereafter, the charge is $0.025 per 1000 state transitions.
--   You can have many, simultaneous, executions, but be aware of lambda throttling limits. This has been per-account, pre-region, but recently became settable per-lambda.
--   Step Function executions are limited to 25,000 events. Each step creates multiple events. This means that [iterating a loop using Lambda](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-create-iterate-pattern-section.html) is limited to an iteration count of around 3000 before needing to [continue as a new execution](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-continue-new.html).
+### Ошибки и ограничения, связанные с Step Functions
+-   Step Functions на уровне бесплатного использования позволяет производить 4000 переходов в месяц бесплатно. Впоследствии, оплата составляет $0.025 за тысячу переходов.
+-   Вы можете производить множество одновременных запусков, однако помните о лимитах троттлинга lambda. Раньше эти ограничения был на учетную запись, на регион, но недавно их стало возможным устанавливать на уровне lambda функций.
+-   Запуски Step Function ограничены 25,000 событий. Каждый шаг создает несколько событий. Это означает, что [цикл с использованием Lambda](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-create-iterate-pattern-section.html) ограничен количеством итераций равным 3000, после чего продолжение возможно [путем нового запуска](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-continue-new.html).
 
 Route 53
 --------
