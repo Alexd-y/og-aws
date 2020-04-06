@@ -69,7 +69,7 @@
 | [S3](#s3) | [📗](#основы-s3) | [📘](#советы-по-s3) | [📙](#ошибки-и-ограничения-s3) |
 | [Безопасность и IAM](#безопасность-и-iam) | [📗](#основы-безопасности-и-iam) | [📘](#советы-по-безопасности-и-iam) | [📙](#ошибки-и-ограничения-в-вопросе-обеспечения-безопасности-и-iam) |
 | [SES](#ses) | [📗](#основы-ses) | [📘](#советы-по-ses) | [📙](#ошибки-и-ограничения-связанные-с-ses) |
-| [SNS](#sns) | [📗](#sns-basics) | [📘](#sns-tips) | [📙](#sns-gotchas-and-limitations) |
+| [SNS](#sns) | [📗](#основы-sns) | [📘](#советы-по-sns) | [📙](#ошибки-и-ограничения-связанные-с-sns) |
 | [SQS](#sqs) | [📗](#sqs-basics) | [📘](#sqs-tips) | [📙](#sqs-gotchas-and-limitations) |
 | [Step Functions](#step-functions) | [📗](#step-functions-basics) | [📘](#step-functions-tips) | [📙](#step-functions-gotchas-and-limitations) |
 | [WAF](#waf) | [📗](#основы-waf) | [📘](#советы-по-waf) | [📙](#ошибки-и-ограничения-связанные-с-waf) |
