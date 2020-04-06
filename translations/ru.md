@@ -2286,29 +2286,29 @@ SNS
 - Копия сообщения направляется каждому подписчику посредством соотвествующего протокола.
 - SNS также может [вызывать функции lambda](http://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html).
 
-### SNS Alternatives and Lock-In
+### Альтернативы SNS и привязки
 
-- Popular alternatives to SNS are [Kafka](https://kafka.apache.org/), [Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/) on Azure, and [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) on Google Cloud.
-- **SNS vs SQS:**
-    - Both SNS and SQS are highly scalable, fully managed messaging services provided by AWS.
-    - SQS supports a *pull* model, while SNS supports a *push* model. Consumers have to pull messages from an SQS Queue, while they're pushed the message from an SNS Topic.
-    - An SQS message is intended to be processed by only one subscriber, while SNS topics can have many subscribers.
-    - After processing, the SQS message is deleted from the queue by the subscriber to avoid being re-processed.
-    - An SNS message is *pushed* to all subscribers of the topic at the same time, and is not available for deletion at the topic.
-    - SNS supports multiple transport protocols of delivery of the messages to the subscribers, while SQS subscribers have to pull the messages off the queue over HTTPS.
+- Популярными альтернативами SNS являются [Kafka](https://kafka.apache.org/), [Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/) в Azure, и [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) в Google Cloud.
+- **SNS и SQS:**
+    - SNS и SQS оба являются высокомасштабируемыми, полностью управляемыми сервисами сообщений предоставляемыми AWS.
+    - SQS поддерживает модель *Вытаскивания данных(pull)*, в то время, как SNS поддерживает модель *Отправки данных(push)*. Потребители должны запрашивать данные из очереди SQS, в то время, как им приходят сообщения с Темы SNS.
+    - Сообщение SQS предназначено для обработки только одним подписчиком, в то время, как Темы SNS имеют множество подписчиков.
+    - После обработки, сообщение SQS удаляется из очереди, для того, чтобы избежать повторной обработки.
+    - Сообщение SNS *направляется* всем подписчикам темы одновременно и это делает невозможным удаление сообщения из Темы.
+    - SNS поддерживает массу транспортных протоколов доставки сообщений подписчикам, в то время, как подписчики SQS могут запрашивать сообщения из очереди только через HTTPS.
 
-### SNS Tips
+### Советы по SNS
 
-- [Fan-out](http://docs.aws.amazon.com/sns/latest/dg/SNS_Scenarios.html) architecture can be achieved by having multiple subscribers for a topic. This is particularly useful when events have to be fanned out to multiple, isolated systems.
-- SNS topics can be used to power [webhooks](https://en.wikipedia.org/wiki/Webhook) with [backoff support](http://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) to subscribers over HTTP/S.
-- [SQS queues](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html) can subscribe to SNS topics.
-- SNS is used to manage notifications for other AWS services like [Autoscaling Groups](http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html)' notifications, [CloudWatch Alarms](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html), etc.
-- SNS is frequently used as “glue” between disparate systems— such as GitHub and AWS services.
+- Архитектура [Fan-out](http://docs.aws.amazon.com/sns/latest/dg/SNS_Scenarios.html) может быть достигнута путем назначения нескольких подписчиков на тему. Это особенно полезно, когда события должны распространяться на несколько изолированных систем.
+- Темы SNS могут быть использованы для передачи [вебхуков](https://en.wikipedia.org/wiki/Webhook) с [поддержкой откладывания](http://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) подписчикам через HTTP/S.
+- [Очереди SQS](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html) могут быть подписаны на темы SNS.
+- SNS используется для управления уведомлениями для других сервисов AWS, таких как уведомления [групп автоматического масштабирования(Autoscaling Groups)](http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html)' , [Тревоги CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html), и т.д.
+- SNS часто используется, как “клей” между несопоставимыми системами, такими, как GitHub и сервисы AWS.
 
-### SNS Gotchas and Limitations
+### Ошибки и ограничения, связанные с SNS
 
-- 🔸 HTTP/S subscribers of SNS topics need to have public endpoints, as SNS does not support calling private endpoints (like those in a private subnet within a VPC).
-- 📜 In a fan-out scenario, [SSE-enabled SQS](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) subscribers of an SNS topic [will not receive](https://lobster1234.github.io/2017/10/14/fan-out-with-sns-and-sqs-gotcha/) the messages sent to the topic.
+- 🔸 Подписчики SNS подключающиеся по HTTP/S должны иметь доступ к общедоступным выходным точкам, так как SNS не поддерживает частные выходные точки (типа тех, которые находятся в частных подсетях внутри VPC).
+- 📜 В сценарии fan-out [SQS с включенным шифрованием на стороне сервера(SSE-enabled SQS)](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) подписанные на тему SNS [не получат](https://lobster1234.github.io/2017/10/14/fan-out-with-sns-and-sqs-gotcha/) сообщений, посланных в тему.
 
 High Availability
 -----------------
