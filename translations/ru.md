@@ -2234,23 +2234,23 @@ Batch
 SQS
 -------------------
 
-### SQS Basics
+### Основы SQS
 
-- 📒  [_Homepage_](https://aws.amazon.com/sqs/) ∙ [_Documentation_](https://aws.amazon.com/documentation/sqs/) ∙ [_FAQ_](https://aws.amazon.com/sqs/faqs/) ∙ [_Pricing_ ](https://aws.amazon.com/sqs/pricing/)
-- SQS is a highly scalable, fully managed message queuing service from AWS.
-- SQS supports the pull model, where the producers *queue* the messages, and the consumers pull messages off the queue.
-- SQS provides a message visibility timeout, during which the message being processed will not be delivered to other consumers. If the consumer does not delete the message after processing, the message becomes available to other consumers upon reaching the message visibility timeout. This parameter is called VisibilityTimeout.
-- Each message can have up to 10 custom fields, or attributes.
-- SQS allows producers to set up to 15 minutes of delay before the messages are delivered to the consumers. This parameter is called DelaySeconds.
-- There are two types of queues supported by SQS -
-    - Standard Queues
-        - Guarantee **at least once** delivery of the messages.
-        - Do not retain the order of delivery of the messages.
-    - FIFO Queues
-        - Guarantee **only once** delivery of the messages
-        - Guarantee the order of the delivery of the messages
-- SQS supports fine grained access to various API calls and Queues via IAM policies.
-- The messages that fail to process can be put in a dead letter queue.
+- 📒  [Домашняя страница](https://aws.amazon.com/sqs/) ∙ [Документация](https://aws.amazon.com/documentation/sqs/) ∙ [ЧаВо](https://aws.amazon.com/sqs/faqs/) ∙ [Расценки](https://aws.amazon.com/sqs/pricing/)
+- SQS - это высокомасштабируемая, полностью управляемая служба очереди сообщений от AWS.
+- SQS поддерживает модель извлечения, когда источники передают сообщения в *очередь*, а потребители извлекают сообщения из очереди.
+- SQS предоставляет тайм-аут видимости сообщения, в течение которого обрабатываемое сообщение не будет доставлено другим потребителям. Если потребитель не удаляет сообщение после обработки, оно становится доступным для других потребителей по истечении времени ожидания видимости сообщения. Этот параметр называется VisibilityTimeout.
+- Каждое сообщение может иметь до 10 пользовательских полей или атрибутов.
+- SQS позволяет источникам устанавливать задержку до 15 минут, прежде чем сообщения будут доставлены потребителям. Этот параметр называется DelaySeconds.
+- Существует два типа очередей, которые поддерживает SQS -
+    - Стандартные очереди(Standard Queues)
+        - Гарантирует **как минимум одну** доставку сообщеинй.
+        - Не сохраняет порядок очереди доставки сообщений.
+    - Очередь типа первый пришел, первый ушел(FIFO Queues)
+        - Гарантирует **только одну** доставку сообщения
+        - Гарантирует сохранность порядка доставки сообщений
+- SQS поддерживает гранулярный доступ к вызовам различных API и очередям через политики IAM.
+- Сообщения, которые не обрабатываются, могут быть помещены в очередь недоставленных сообщений.
 
 ### SQS Alternatives and Lock-In
 
