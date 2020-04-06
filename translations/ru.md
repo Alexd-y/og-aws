@@ -71,7 +71,7 @@
 | [SES](#ses) | [📗](#основы-ses) | [📘](#советы-по-ses) | [📙](#ошибки-и-ограничения-связанные-с-ses) |
 | [SNS](#sns) | [📗](#основы-sns) | [📘](#советы-по-sns) | [📙](#ошибки-и-ограничения-связанные-с-sns) |
 | [SQS](#sqs) | [📗](#основы-sqs) | [📘](#советы-по-sqs) | [📙](#ошибки-и-ограничения-связанные-с-sqs) |
-| [Step Functions](#step-functions) | [📗](#step-functions-basics) | [📘](#step-functions-tips) | [📙](#step-functions-gotchas-and-limitations) |
+| [Step Functions](#step-functions) | [📗](#основы-step-functions) | [📘](#советы-по-step-function) | [📙](#ошибки-и-ограничения-связанные-с-step-functions) |
 | [WAF](#waf) | [📗](#основы-waf) | [📘](#советы-по-waf) | [📙](#ошибки-и-ограничения-связанные-с-waf) |
 | [VPCs, Network Security, and Security Groups](#vpcs-network-security-and-security-groups) | [📗](#vpc-basics) | [📘](#vpc-and-network-security-tips) | [📙](#vpc-and-network-security-gotchas-and-limitations) |
 
