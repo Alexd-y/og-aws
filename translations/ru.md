@@ -1621,21 +1621,21 @@ API Gateway
 Step Functions
 ------
 
-### Step Functions Basics
--	📒 [Homepage](https://aws.amazon.com/step-functions/) ∙ [Developer guide](http://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) ∙ [FAQ](https://aws.amazon.com/step-functions/faqs/) ∙ [Pricing](https://aws.amazon.com/step-functions/pricing/)
--	**Step Functions** is AWS’ way to create state machines that manage a serverless workflow.
+### Основы Step Functions
+-	📒 [Домашняя страница](https://aws.amazon.com/step-functions/) ∙ [Руководство разработчика](http://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) ∙ [ЧаВо](https://aws.amazon.com/step-functions/faqs/) ∙ [Расценки](https://aws.amazon.com/step-functions/pricing/)
+-	**Step Functions** - это способ AWS по созданию конечных автоматов, которые управляют бессерверным рабочим процессом.
 
-### Step Functions Tips
--   A variety of structures are supported including branching, parallel operations and waits
--   [Tasks](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-tasks.html) represent the real work nodes and are frequently Lambda functions, but can be [Activities](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html) which are externally driven tasks implemented any way you like.
--   State machines have [data](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-data.html) that "flows" through the steps and can be modified and added to as the state machine executes.
--   It's best if your tasks are idempotent, in part because you may want to re-run the state machine with the same input data during debugging
--   The AWS Console facilitates your examining the execution state at various steps.
-    -   The console lets you do this with a few steps:
-        -   select the "input" tab from the failed execution
-        -   copy the input data (JSON)
-        -   select the state machine name in the breadcrumbs
-        -   start a new execution, pasting the input data you copied previously
+### Советы по Step Function
+-   Многообразие структур поддерживается, включая ветвление, параллельные операции и ожидание.
+-   [Задачи(Tasks)](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-tasks.html) представляют из себя реальные рабочие узлы и часто, лямбда функции, но также могут быть еще и [Активности(Activities)](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html) которые являются внешне управляемыми задачами, реализованными так, как вам угодно.
+-   У конечных автоматов есть [данные](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-data.html), которые "обрабатываются" пошагово и могут быть изменены или добавлены, по мере запусков конечного автомата.
+-   Лучше всего, если ваши задачи являются идемпотентными, отчасти потому, что вы можете повторно запустить конечный автомат с теми же входными данными во время отладки
+-   Консоль AWS облегчает изучение состояния выполнения на различных этапах.
+    -   Консоль позволяет сделать это за несколько шагов:
+        -   выберите вкладку "input" на неудачно запущенном задании
+        -   скопируйте входные данные (JSON)
+        -   выберите имя конечного автомата в "хлебных крошках"(навигационной цепочке сверху)
+        -   запустите новое выполнение, вставив входные данные, которые вы скопировали ранее
 
 ### Step Functions Gotchas and Limitations
 -   Step Functions are free tier eligible up to an initial 4000 transitions per month. Thereafter, the charge is $0.025 per 1000 state transitions.
