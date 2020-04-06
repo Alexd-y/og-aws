@@ -2252,25 +2252,25 @@ SQS
 - SQS поддерживает гранулярный доступ к вызовам различных API и очередям через политики IAM.
 - Сообщения, которые не обрабатываются, могут быть помещены в очередь недоставленных сообщений.
 
-### SQS Alternatives and Lock-In
+### Альтернативы SQS и привязки
 
-- Alternatives to SQS include [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/), [ActiveMQ](http://activemq.apache.org/) and others.
-- Google Cloud Platform has Pub/Sub, and Azure has Azure Queue Service.
-- [SQS vs SNS](#sns-alternatives-and-lock-in)
+- Альтернативы SQS включают [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/), [ActiveMQ](http://activemq.apache.org/) и другие.
+- В Google Cloud Platform есть Pub/Sub, а в  Azure есть Azure Queue Service.
+- [SQS vs SNS](#альтернативы-sns-и-привязки)
 
-### SQS Tips
+### Советы по SQS
 
-- SNS can be used in combination of SQS to build a “fan out” mechanism by having an SQS Queue subscribe to the SNS topic.
-- SQS supports encryption using AWS KMS.
-- Cloudwatch alarms can be creating using [various SQS metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/sqs-metricscollected.html) to trigger autoscaling actions and/or notifications.
+- SNS может быть использован совместно с SQS для построения механизма “fan out”, путем подписки очереди SQS на тему SNS.
+- SQS поддерживает шифрование посредством AWS KMS.
+- Тревоги Cloudwatch могут быть созданы путем использования [различных метрик SQS](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/sqs-metricscollected.html) для запуска автоматического масштабирования и/или отправки оповещений.
 
-### SQS Gotchas and Limitations
+### Ошибки и ограничения, связанные с SQS
 
-- 🔸 SQS does not have a VPC endpoint (unlike S3 and DynamoDB), so SQS will need to be accessed using public SQS API endpoints.
-- 🔸 FIFO Queues are limited to 300 API calls per second.
-- 🔸 FIFO Queues cannot subscribe to an SNS topic.
-- 🔸 Standard Queues can deliver duplicate messages regardless of the visibility window. If only-once delivery is your only choice, then use FIFO queues, or build an additional layer to de-dupe the messages.
-- 🔸 You can send/receive messages in batch, however, there can only be maximum of 10 messages in a batch.
+- 🔸 SQS не имеет конечной точки в VPC (в отличии от S3 и DynamoDB), таким образом доступ к SQS происходит через общедоступные выходные точки API SQS.
+- 🔸 Очереди FIFO(Первый пришел, первый ушел) ограничены частотой вызовов в 300 вызовов API в секунду.
+- 🔸 Очереди FIFO не могут быть подписаны на тему SNS.
+- 🔸 Стандартные очереди могут доставлять дубликаты сообщений независимо от окна видимости. Если ваш выбор - единовременная доставка, используйте очереди FIFO или создайте дополнительную прослойку для устранения дубликатов.
+- 🔸 Вы можете отправлять/получать сообщения пакетами, однако в пакете может быть не более 10 сообщений.
 
 
 SNS
