@@ -2276,15 +2276,15 @@ SQS
 SNS
 ---------------------
 
-### SNS Basics
+### Основы SNS
 
-- 📒  [_Homepage_](https://aws.amazon.com/sns/) ∙ [_Documentation_](https://aws.amazon.com/documentation/sns/) ∙ [_FAQ_](https://aws.amazon.com/sns/faqs/) ∙ [_Pricing_](https://aws.amazon.com/sns/pricing/)
-- **SNS** (Simple Notification Service) is a pub/sub based, highly scalable, and fully managed messaging service that can also be used for mobile notifications.
-- SNS can push the messages down to the subscribers via [SMS](http://docs.aws.amazon.com/sns/latest/dg/SMSMessages.html), [Email](http://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html), [SQS](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html), and [HTTP/S](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html) transport protocols.
-- Producers publish messages to a SNS Topics, which can have many subscribers.
-- Each subscription has an associated [protocol](http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html), which is used to notify the subscriber.
-- A copy of the message is sent to each subscriber using the associated protocol.
-- SNS can also [invoke lambda functions](http://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html).
+- 📒  [Домашняя страница](https://aws.amazon.com/sns/) ∙ [Документация](https://aws.amazon.com/documentation/sns/) ∙ [ЧаВо](https://aws.amazon.com/sns/faqs/) ∙ [Расценки](https://aws.amazon.com/sns/pricing/)
+- **SNS** (Простой сервис уведомлений(Simple Notification Service)) - это высоко-масштабируемый полностью управляемый сервис сообщений на базе публикаций/подписок, который также может быть использован для мобильных уведомлений.
+- SNS может передавать сообщения подписчикам посредством транспортных протоколов [SMS](http://docs.aws.amazon.com/sns/latest/dg/SMSMessages.html), [Email](http://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html), [SQS](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html), и [HTTP/S](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html).
+- Источники сообщений публикуют их в Темы SNS(SNS Topics), в которых может быть много подписчиков.
+- Каждая подписка имеет соответствующий [протокол](http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html), который используется для оповещения подписчика.
+- Копия сообщения направляется каждому подписчику посредством соотвествующего протокола.
+- SNS также может [вызывать функции lambda](http://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html).
 
 ### SNS Alternatives and Lock-In
 
