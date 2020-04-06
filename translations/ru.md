@@ -2310,19 +2310,19 @@ SNS
 - 🔸 Подписчики SNS подключающиеся по HTTP/S должны иметь доступ к общедоступным выходным точкам, так как SNS не поддерживает частные выходные точки (типа тех, которые находятся в частных подсетях внутри VPC).
 - 📜 В сценарии fan-out [SQS с включенным шифрованием на стороне сервера(SSE-enabled SQS)](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) подписанные на тему SNS [не получат](https://lobster1234.github.io/2017/10/14/fan-out-with-sns-and-sqs-gotcha/) сообщений, посланных в тему.
 
-High Availability
+Высокая доступность
 -----------------
 
-This section covers tips and information on achieving [high availability](https://en.wikipedia.org/wiki/High_availability).
+Этот раздел охватывает советы и информацию по достижению [высокой доступности](https://en.wikipedia.org/wiki/High_availability).
 
 
 
-### High Availability Tips
+### Советы по высокой доступности
 
--	AWS offers two levels of redundancy, [regions and availability zones (AZs)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones).
--	When used correctly, regions and zones do allow for high availability. You may want to use non-AWS providers for larger business risk mitigation (i.e. not tying your company to one vendor), but reliability of AWS across regions is very high.
--	**Multiple regions:** Using multiple regions is complex, since it’s essentially like managing completely separate infrastructures. It is necessary for business-critical services with the highest levels of redundancy. However, for many applications (like your average consumer startup), deploying extensive redundancy across regions may be overkill.
--	The [High Scalability Blog](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html) has a good guide to help you understand when you need to scale an application to multiple regions.
+-	AWS предлагает два уровня отказоустойчивости, [регионы и зоны доступности (AZs)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones).
+-	При правильном использовании регионы и зоны обеспечивают высокую доступность. Возможно, вы захотите использовать других провайдеров для еще более значительного снижения бизнес-рисков (то есть не привязывать свою компанию к одному поставщику), но надежность AWS в различных регионах крайне высока.
+-	**Несколько регионов:** Использование нескольких регионов является сложным, поскольку по сути это похоже на управление совершенно отдельными инфраструктурами. Это необходимо для критически важных для бизнеса услуг с высоким уровнем резервирования. Однако для многих приложений (например, для вашего стартапа ориентирующегося на средний класс потребителей) развертывание обширной избыточности по регионам может оказаться излишним.
+-	Этот блог [High Scalability](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html) является хорошим руководством, призванным помочь вам понять, нужно ли вам растягивать ваше приложение на несколько регионов.
 -	🔹**Multiple AZs:** Using AZs wisely is the primary tool for high availability!
 	-	A typical single-region high availability architecture would be to deploy in two or more availability zones, with load balancing in front, as in [this AWS diagram](http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_ftha_04.pdf).
 	-	The bulk of outages in AWS services affect one zone only. There have been rare outages affecting multiple zones simultaneously (for example, the [great EBS failure of 2011](http://aws.amazon.com/message/65648/)) but in general most customers’ outages are due to using only a single AZ for some infrastructure.
