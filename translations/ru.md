@@ -2374,11 +2374,11 @@ SNS
 
 ![Затраты на передачу данных в AWS](../figures/aws-data-transfer-costs.png)
 
-### EC2 Cost Management
+### Управление затратами на EC2
 
--	With EC2, there is a trade-off between engineering effort (more analysis, more tools, more complex architectures) and spend rate on AWS. If your EC2 costs are small, many of the efforts here are not worth the engineering time required to make them work. But once you know your costs will be growing in excess of an engineer’s salary, serious investment is often worthwhile.
--	Larger instances aren’t necessarily priced higher in the spot market – therefore, you should look at the available options and determine which instances will be most cost effective for your jobs. See [Bid Advisor](https://aws.amazon.com/ec2/spot/bid-advisor/).
--	🔹**Spot instances:**
+-	В EC2 существует компромисс между инженерными усилиями (больше анализа, больше инструментов, более сложные архитектуры) и расходами на AWS. Если ваши затраты на EC2 малы, эти усилия обычно не обходятся дороже того инженерного времени, которое потребуется для того, чтобы сделать так, чтобы все работало. Однако, если расходы начнут превышать заработную плату инженера, могут потребоваться серьезные инвестиции.
+-	Более крупные инстансы не обязательно имеют более высокую цену на спотовом рынке, поэтому вам следует рассмотреть доступные варианты и определить, какие инстансы будут наиболее экономически эффективными для ваших работ. Изучите [Советника по ставкам(Bid Advisor)](https://aws.amazon.com/ec2/spot/bid-advisor/).
+-	🔹**Спотовые инстансы:**
 	-	EC2 [Spot instances](https://aws.amazon.com/ec2/spot/) are a way to get EC2 resources at significant discount — often many times cheaper than standard on-demand prices — if you’re willing to accept the possibility that they be terminated with little to no warning.
 	-	Use Spot instances for potentially very significant discounts whenever you can use resources that may be restarted and don’t maintain long-term state.
 	-	The huge savings that you can get with Spot come at the cost of a significant increase in complexity when provisioning and reasoning about the availability of compute capacity.
